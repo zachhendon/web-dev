@@ -1,4 +1,4 @@
-This repository is a collection of projects that I will be completing as I learn the fundamentals of web development. They are ordered by the order in which I created them. 
+This repository is a collection of projects that I will be completing as I learn the fundamentals of web development.
 
 | Project Name (in order of learning)                                | Tools/Skills            |
 |--------------------------------------------------------------------|-------------------------|
