@@ -1,0 +1,1 @@
+Simple first website (via Codecademy) using the fundamentals of HTML and CSS.
