@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link rel="stylesheet" href="resources/css/index.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>HTML & CSS Basics</h1>
+      <nav>
+        <ul>
+          <li><a href="#html">HTML</a></li>
+          <li><a href="#css">CSS</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div id="html">
+        <h1>HTML</h1>
+        <nav>
+          <ul>
+            <li><a href="#syntax">Basic Syntax</a></li>
+            <li><a href="#page-structure">Page Structure</a></li>
+            <li><a href="#common-tags">Common Tags</a></li>
+            <li><a href="#semantic-html">Semantic HTML</a></li>
+          </ul>
+        </nav>
+        <h2 id="syntax">Basic Sytax</h2>
+        <h3>Elements</h3>
+        <p>
+          An element consists of content between an opening and closing tags
+          (see Figure 1 below).
+        </p>
+        <figure id="figure-1">
+          <img src="resources/images/tag-syntax.png" />
+          <figcaption>
+            Figure 1 -
+            <a
+              href="https://www.w3.org/community/webed/wiki/HTML/Training/Tag_syntax"
+              >w3.org</a
+            >
+          </figcaption>
+        </figure>
+        <p>
+          Elements can be either <em>block-level</em> or <em>inline-level</em>.
+          An block element is visually separate from the surrounding elements.
+          An inline element can be placed within block elements without
+          disrupting the flow of the page. Let's analyze this page to explain
+          the difference. Notice how this block of text is separated from the
+          text above and below it. This is the case because each paragraph is
+          written in a separate <span class="tag">p</span> element, which is a
+          block element. However, within this paragraph, the words
+          <em>block-level</em> and <em>inline-level</em> are italicized. This
+          was done by placing each word within the
+          <span class="tag">em</span> tag, an inline element.
+        </p>
+        <p>
+          Some tags, such as <span class="tag">br /</span> are self closing and
+          do not require a closing tag. These are known as
+          <em>void elements </em>(<span class="tag">br /</span> and
+          <span class="tag">br</span> are both valid).
+        </p>
+        <h3>Attributes</h3>
+        <p>
+          Many tags also have attributes where the developer can specify a value
+          (see Figure 2). For example, the image tag
+          <span class="tag">img /</span> has a required attribute "src"
+          (source). The associated value is a link to the image to display. This
+          is an example of a required attribute, but many are optional.
+        </p>
+        <figure id="figure-2">
+          <img src="resources/images/attribute.png" />
+          <figcaption>
+            Figure 2 -
+            <a
+              href="https://www.w3.org/community/webed/wiki/HTML/Training/Tag_syntax"
+              >w3.org</a
+            >
+          </figcaption>
+        </figure>
+        <h4>Global Attributes</h4>
+        <p>
+          There are two commonly used global attributes. These serve a very
+          important purpose when styling a website with CSS.
+        </p>
+        <ul>
+          <li>
+            <span class="attribute">id</span
+            ><span class="attribute-desc"
+              >uniquely identifies a tag (can only be applied to 1 tag)</span
+            >
+          </li>
+          <li>
+            <span class="attribute">class</span
+            ><span class="attribute-desc"
+              >identifies multiple tags (can be applied to unlimited tags)</span
+            >
+          </li>
+        </ul>
+        <h2 id="common-tags">Common Tags</h2>
+        <table>
+          <thead>
+            <th>Tag</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Attributes</th>
+            <th>Inline</th>
+            <th>Void</th>
+          </thead>
+          <tbody>
+            <tr id="h1">
+              <td><span class="tag">h1</span>...<span class="tag">h6</span></td>
+              <td class="name">Header 1-6</td>
+              <td class="description">
+                Represents 6 levels of headings. 1 is the highest level and
+                largest by default.
+              </td>
+              <td class="attributes">
+                <ul>
+                  <li class="global">Global attributes</li>
+                </ul>
+              </td>
+              <td class="boolean">No</td>
+              <td class="boolean">No</td>
+            </tr>
+            <tr id="p">
+              <td><span class="tag">p</span></td>
+              <td class="name">Paragraph</td>
+              <td class="description">
+                Represents a paragraph. This is the typical element for blocks
+                of text.
+              </td>
+              <td class="attributes">
+                <ul>
+                  <li class="global">Global attributes</li>
+                </ul>
+              </td>
+              <td class="boolean">No</td>
+              <td class="boolean">No</td>
+            </tr>
+            <tr id="div">
+              <td><span class="tag">div</span></td>
+              <td class="name">Content Divison</td>
+              <td class="description">
+                The generic container for content. Has no effect except to group
+                content for styling.
+              </td>
+              <td class="attributes">
+                <ul>
+                  <li class="global">Global attributes</li>
+                </ul>
+              </td>
+              <td class="boolean">No</td>
+              <td class="boolean">No</td>
+            </tr>
+            <tr id="span">
+              <td><span class="tag">span</span></td>
+              <td class="name">Content Span</td>
+              <td class="description">
+                The generic inline container for content. Has no effect except
+                to group inline content for styling.
+              </td>
+              <td class="attributes">
+                <ul>
+                  <li class="global">Global attributes</li>
+                </ul>
+              </td>
+              <td class="boolean">Yes</td>
+              <td class="boolean">No</td>
+            </tr>
+            <tr id="a">
+              <td><span class="tag">a</span></td>
+              <td class="name">Anchor</td>
+              <td class="description">
+                Used to link to web pages, files, etc. with a url.
+              </td>
+              <td class="attributes">
+                <ul>
+                  <li class="global">Global attributes</li>
+                  <li>
+                    <strong>Required: </strong
+                    ><span class="attribute">href</span
+                    ><span class="attribute-desc"
+                      >the url of the hyperlink</span
+                    >
+                  </li>
+                  <li>
+                    <span class="attribute">download</span
+                    ><span class="attribute-desc"
+                      >treats the url as a download</span
+                    >
+                  </li>
+                </ul>
+              </td>
+              <td class="boolean">Yes</td>
+              <td class="boolean">No</td>
+            </tr>
+            <tr id="br">
+              <td><span class="tag">br</span></td>
+              <td class="name">Line Break</td>
+              <td class="description">Creates a line berak in the text.</td>
+              <td class="attributes">
+                <ul>
+                  <li class="global">Global attributes</li>
+                </ul>
+              </td>
+              <td class="boolean">Yes</td>
+              <td class="boolean">Yes</td>
+            </tr>
+            <tr id="table">
+              <td><span class="tag">table</span></td>
+              <td class="name">Table</td>
+              <td class="description">
+                Represents data in tabular form (rows and columns).
+              </td>
+              <td class="attributes">
+                <ul>
+                  <li class="global">Global attributes</li>
+                </ul>
+              </td>
+              <td class="boolean">No</td>
+              <td class="boolean">No</td>
+            </tr>
+            <tr id="img">
+              <td><span class="tag">img</span></td>
+              <td class="name">Image Embed</td>
+              <td class="description">Embeds an image into the document.</td>
+              <td class="attributes">
+                <ul>
+                  <li class="global">Global attributes</li>
+                  <li>
+                    <strong>Required: </strong><span class="attribute">src</span
+                    ><span class="attribute-desc">the path to the image</span>
+                  </li>
+                  <li>
+                    <span class="attribute">alt</span
+                    ><span class="attribute-desc"
+                      >a description of the image (helpful for screen reader
+                      acessibility)</span
+                    >
+                  </li>
+                </ul>
+              </td>
+              <td class="boolean">Yes</td>
+              <td class="boolean">Yes</td>
+            </tr>
+            <tr id="video">
+              <td><span class="tag">video</span></td>
+              <td class="name">Video Embed</td>
+              <td class="description">
+                Embeds a media player and a video in the document.
+              </td>
+              <td class="attributes">
+                <ul>
+                  <li class="global">Global attributes</li>
+                  <li>
+                    <strong>Required: </strong><span class="attribute">src</span
+                    ><span class="attribute-desc"
+                      >The url of the video (can also use
+                      <span class="tag">source</span>)</span
+                    >
+                  </li>
+                  <li>
+                    <span class="attribute">autoplay</span
+                    ><span class="attribute-desc"
+                      >plays the video automatically</span
+                    >
+                  </li>
+                  <li>
+                    <span class="attribute">controls</span
+                    ><span class="attribute-desc"
+                      >allows the user to control the video (volume, play/pause,
+                      etc.)</span
+                    >
+                  </li>
+                  <li>
+                    <span class="attribute">loop</span
+                    ><span class="attribute-desc"
+                      >plays the video again after it finishes</span
+                    >
+                  </li>
+                </ul>
+              </td>
+              <td class="boolean">No</td>
+              <td class="boolean">No</td>
+            </tr>
+            <tr id="audio">
+              <td><span class="tag">audio</span></td>
+              <td class="name">Audio Embed</td>
+              <td class="description">Embeds sound in a document.</td>
+              <td class="attributes">
+                <ul>
+                  <li class="global">Global attributes</li>
+                  <li>
+                    <strong>Required: </strong><span class="attribute">src</span
+                    ><span class="attribute-desc"
+                      >The url of the audio (can also use
+                      <span class="tag">source</span>)</span
+                    >
+                  </li>
+                  <li>
+                    <span class="attribute">autoplay</span
+                    ><span class="attribute-desc"
+                      >plays the video automatically</span
+                    >
+                  </li>
+                  <li>
+                    <span class="attribute">controls</span
+                    ><span class="attribute-desc"
+                      >allows the user to control the video (volume, play/pause,
+                      etc.)</span
+                    >
+                  </li>
+                  <li>
+                    <span class="attribute">loop</span
+                    ><span class="attribute-desc"
+                      >plays the video again after it finishes</span
+                    >
+                  </li>
+                </ul>
+              </td>
+              <td class="boolean">No</td>
+              <td class="boolean">No</td>
+            </tr>
+            <tr id="ul">
+              <td><span class="tag">ul</span></td>
+              <td class="name">Unordered List</td>
+              <td class="description">
+                Represents an unordered list of items (bullets).
+              </td>
+              <td class="attributes">
+                <ul>
+                  <li class="global">Global attributes</li>
+                </ul>
+              </td>
+              <td class="boolean">No</td>
+              <td class="boolean">No</td>
+            </tr>
+            <tr id="ol">
+              <td><span class="tag">ol</span></td>
+              <td class="name">Ordered List</td>
+              <td class="description">
+                Represents an ordered list of items (numbered).
+              </td>
+              <td class="attributes">
+                <ul>
+                  <li class="global">Global attributes</li>
+                </ul>
+              </td>
+              <td class="boolean">No</td>
+              <td class="boolean">No</td>
+            </tr>
+            <tr id="dl">
+              <td><span class="tag">dl</span></td>
+              <td class="name">Description List</td>
+              <td class="description">
+                Represents a list of definitions and descriptions.
+              </td>
+              <td class="attributes">
+                <ul>
+                  <li class="global">Global attributes</li>
+                </ul>
+              </td>
+              <td class="boolean">No</td>
+              <td class="boolean">No</td>
+            </tr>
+            <tr id="b">
+              <td><span class="tag">b</span></td>
+              <td class="name">Bold</td>
+              <td class="description">Bolds the text.</td>
+              <td class="attributes">
+                <ul>
+                  <li class="global">Global Attributes</li>
+                </ul>
+              </td>
+              <td class="boolean">Yes</td>
+              <td class="boolean">No</td>
+            </tr>
+            <tr id="i">
+              <td><span class="tag">i</span></td>
+              <td class="name">Italic</td>
+              <td class="description">Italicizes the text.</td>
+              <td class="attributes">
+                <ul>
+                  <li class="global">Global attributes</li>
+                </ul>
+              </td>
+              <td class="boolean">Yes</td>
+              <td class="boolean">No</td>
+            </tr>
+            <tr id="sub">
+              <td><span class="tag">sub</span></td>
+              <td class="name">Subscript</td>
+              <td class="description">
+                Inline text that should be displayed a subscript (e.g. the 2 in
+                H<sub>2</sub>O).
+              </td>
+              <td class="attributes">
+                <ul>
+                  <li class="global">Global attributes</li>
+                </ul>
+              </td>
+              <td class="boolean">Yes</td>
+              <td class="boolean">No</td>
+            </tr>
+            <tr id="sup">
+              <td><span class="tag">sup</span></td>
+              <td class="name">Superscript</td>
+              <td class="description">
+                Inline text that should be displayed as a superscript (e.g. the
+                2 in x<sup>2</sup>).
+              </td>
+              <td class="attributes">
+                <ul>
+                  <li class="global">Global attributes</li>
+                </ul>
+              </td>
+              <td class="boolean">Yes</td>
+              <td class="boolean">No</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3>Tables</h3>
+        <p>
+          A table is initialized with a <span class="tag">table</span> element.
+          The contents of this tag are split into 3 sections:
+          <span class="tag">thead</span> (table head),
+          <span class="tag">tbody</span> (table body), and
+          <span class="tag">tfoot</span> (table foot).
+        </p>
+        <p>
+          The <span class="tag">thead</span> element contains a single
+          <span class="tag">tr</span> (table row). Within this row, is a
+          <span class="tag">th</span> (table header) representing each column in
+          the table.
+        </p>
+        <p>
+          The <span class="tag">tbody</span> contains each of the rows (<span
+            class="tag"
+            >tr</span
+          >). Each row contains a <span class="tag">td</span>
+          (table data) corresponding with each column.
+        </p>
+        <p>
+          The <span class="tag">tfoot</span> is optional and contains a final
+          row. For exmple, this is useful if the table has a row displaying the
+          sum of each column.
+        </p>
+        <h3>Lists</h3>
+        <p>
+          Lists can be of 3 types of lists:
+          <span class="tag">ul</span> (unordered lists),
+          <span class="tag">ol</span> (ordered lists), and
+          <span class="tag">dl</span> (description lists).
+        </p>
+        <p>
+          The first two contain a <span class="tag">li</span> (list item)
+          element for each item of the list. The description lists contain a
+          <span class="tag">dt</span> (description term) and
+          <span class="tag">dd</span> (description details) elements for each
+          item in the list.
+        </p>
+        <table>
+          <tr id="ul"></tr>
+          <tr id="ol"></tr>
+          <tr id="dl"></tr>
+          <tr id="li"></tr>
+          <tr id="dt"></tr>
+        </table>
+        <h2 id="page-structure">Page Structure</h2>
+        <!-- Indentation -->
+        <p>
+          Elements are organized in a hierarchical structure and distinguished
+          by level of indentation. Indentation is commonly either 2 or 4 spaces.
+        </p>
+        <!-- HTML setup -->
+        <p>
+          Each HTML document must have the statement,
+          <em>&lt!DOCTYPE HTML&gt</em> at the top. Additionally, everything must
+          be within an <span class="tag">html</span> element.
+        </p>
+        <!-- Head-body-foot -->
+        <p>
+          An html file will genrally be split into 2 parts:
+          <span class="tag">head</span> and <span class="tag">body</span>. The
+          head element contains critical information such as the title of the
+          website and links to the CSS document. Within the body, there are
+          usually 3 sections: <span class="tag">header</span>,
+          <span class="tag">main</span>, and <span class="tag">footer</span>.
+          The header contains information at the top of the document such as
+          navigation links or the title. The body contains the main section of
+          the document. The footer contains information at the bottom of the
+          pages such as contact details.
+        </p>
+        <h2 id="semantic-html">Semantic HTML</h2>
+        <!-- Purpose -->
+        <p>
+          Using the common tags listed above, one has the resources to create a
+          fully functinoal html document. However, it can be useful to use more
+          descriptive tags. This can make the website more appealing to search
+          engines and improve the experienced for those using screen readers.
+          Below are some of the commonly used <em>semantic HTML</em> tags. Note
+          that these provide minimal, if any new functionality when compared to
+          the above tags. It is, however, good practice to use these when
+          applicable and only use the generic tags such as
+          <span class="tag">div</span> as a last resort.
+        </p>
+        <!-- Common tags -->
+        <table>
+          <thead>
+            <th>Tag</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Attributes</th>
+            <th>Inline</th>
+          </thead>
+          <tbody>
+            <tr id="article">
+              <td><span class="tag">article</span></td>
+              <td id="name">Article</td>
+              <td id="description">
+                Represents self-contained information. Used to group information
+                that could make sense on its own.
+              </td>
+              <td id="attributes">
+                <ul>
+                  <li class="global">Global attributes</li>
+                </ul>
+              </td>
+              <td id="boolean">No</td>
+            </tr>
+            <tr id="aside">
+              <td><span class="tag">aside</span></td>
+              <td id="name">Aside</td>
+              <td id="description">
+                Represents information that is indirectly connected. This could
+                be a related fact, statistic, etc.
+              </td>
+              <td id="attributes">
+                <ul>
+                  <li class="global">Global attributes</li>
+                </ul>
+              </td>
+              <td id="boolean">No</td>
+            </tr>
+            <tr id="section">
+              <td><span class="tag">section</span></td>
+              <td id="name">Section</td>
+              <td id="description">
+                Represents a generic section of a document. Very similar to
+                <span class="tag">div</span>, but implies that its children are
+                connected.
+              </td>
+              <td id="attributes">
+                <ul>
+                  <li class="global">Global attributes</li>
+                </ul>
+              </td>
+              <td id="boolean">No</td>
+            </tr>
+            <tr id="abbr">
+              <td><span class="tag">abbr</span></td>
+              <td id="name">Abbreviation</td>
+              <td id="description">Marks text as an abbreviation.</td>
+              <td id="attributes">
+                <ul>
+                  <li class="global">Global attributes</li>
+                  <li>
+                    <span class="attribute">title</span
+                    ><span class="attribute-desc"
+                      >adds an expansion of the abbreviation</span
+                    >
+                  </li>
+                </ul>
+              </td>
+              <td id="boolean">Yes</td>
+            </tr>
+            <tr id="blockquote">
+              <td><span class="tag">blockquote</span></td>
+              <td id="name">Block Quotation</td>
+              <td id="description">
+                Represents a quote as a block-level element.
+              </td>
+              <td id="attributes">
+                <ul>
+                  <li class="global">Global attributes</li>
+                  <li>
+                    <span class="attribute">cite</span
+                    ><span class="attribute-desc"
+                      >a URL that describes the source of the quote</span
+                    >
+                  </li>
+                </ul>
+              </td>
+              <td id="boolean">No</td>
+            </tr>
+            <tr id="q">
+              <td><span class="tag">q</span></td>
+              <td id="name">Inline Quotation</td>
+              <td id="description">
+                Represents a quote as an inline-level element.
+              </td>
+              <td id="attributes">
+                <ul>
+                  <li class="global">Global attributes</li>
+                  <li>
+                    <span class="attribute">cite</span
+                    ><span class="attribute-desc"
+                      >a URL that describes the source of the quote</span
+                    >
+                  </li>
+                </ul>
+              </td>
+              <td id="boolean">Yes</td>
+            </tr>
+            <tr id="figure">
+              <td><span class="tag">figure</span></td>
+              <td id="name">Figure</td>
+              <td id="description">
+                Represents a self-contained image. This is particularly useful
+                when combined with the following element,
+                <span class="tag">figcaption</span>.
+              </td>
+              <td id="attributes">
+                <ul>
+                  <li class="global">Global attributes</li>
+                </ul>
+              </td>
+              <td id="boolean">No</td>
+            </tr>
+            <tr id="figcaption">
+              <td><span class="tag">figcaption</span></td>
+              <td id="name">Figure Caption</td>
+              <td id="description">
+                Represents a caption describing the image in the
+                <span class="tag">figure</span> element.
+              </td>
+              <td id="attributes">
+                <ul>
+                  <li class="global">Global attributes</li>
+                </ul>
+              </td>
+              <td id="boolean">No</td>
+            </tr>
+            <tr id="nav">
+              <td><span class="tag">nav</span></td>
+              <td id="name">Navigation</td>
+              <td id="description">
+                Represents a section of the document that provides hyperlinks
+                for navigation.
+              </td>
+              <td id="attributes">
+                <ul>
+                  <li class="global">Global attributes</li>
+                </ul>
+              </td>
+              <td id="boolean">No</td>
+            </tr>
+            <tr id="em">
+              <td><span class="tag">em</span></td>
+              <td id="name">Emphasis</td>
+              <td id="description">
+                Marks text having emphasis. Italicized by default.
+              </td>
+              <td id="attributes">
+                <ul>
+                  <li class="global">Global attributes</li>
+                </ul>
+              </td>
+              <td id="boolean">Yes</td>
+            </tr>
+            <tr id="strong">
+              <td><span class="tag">strong</span></td>
+              <td id="name">Strong Importance</td>
+              <td id="description">
+                Marks text as having strong importance. Bolded by defult.
+              </td>
+              <td id="attributes">
+                <ul>
+                  <li class="global">Global attributes</li>
+                </ul>
+              </td>
+              <td id="boolean">Yes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="css">
+        <h1>CSS</h1>
+        <nav>
+          <ul>
+            <li><a href="#html-link">Linking CSS and HTML</a></li>
+            <li><a href="#syntax">Basic Syntax</a></li>
+            <li><a href="#selectors">Selectors</a></li>
+            <li><a href="#attributes">Common Attributes</a></li>
+            <li><a href="#box-model">Box Model</a></li>
+          </ul>
+        </nav>
+        <h2 id="html-link">Linking to CSS and HTML</h2>
+        <h2 id="syntax">Basic Syntax</h2>
+        <h2 id="selectors">Selectors</h2>
+        <h3>Nested Selectors</h3>
+        <h2 id="attributes">Common Attributes</h2>
+        <h2 id="box-model">Box Model</h2>
+      </div>
+    </main>
+  </body>
+</html>
