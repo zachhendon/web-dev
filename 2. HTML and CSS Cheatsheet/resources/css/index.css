@@ -1,4 +1,5 @@
-.tag {
+.tag,
+.selector {
     background-color: lightgray;
     font-family: monospace;
 }
@@ -11,8 +12,14 @@
     content: ">";
 }
 
-#figure-1 img {
+#figure-1 img,
+#figure-2 img {
     width: 500px;
+}
+
+#figure-3 img,
+#figure-4 img {
+    width: 350px;
 }
 
 #figure-2 img {
@@ -23,7 +30,8 @@
     color: lightcoral;
 }
 
-.attribute {
+.attribute,
+.property {
     background-color: lightgoldenrodyellow;
     font-family: monospace;
 }
@@ -31,4 +39,3 @@
 .attribute-desc:before {
     content: "–";
 }
-
