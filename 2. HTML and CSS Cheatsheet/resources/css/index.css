@@ -1,6 +1,108 @@
-.tag,
+* {
+    background-color: hsl(30, 100%, 95%);
+    /* border: solid red 1px; */
+}
+
+html {
+    margin: 0 3em
+}
+
+body {
+    margin: 0 auto;
+    max-width: 1500px;
+}
+
+
+h1 {
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+    font-size: 35px;
+}
+
+h2 {
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+    font-size: 25px;
+    margin-top: 35px;
+}
+
+h3 {
+    /* text-align: center; */
+    font-family: Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+p {
+    text-align: justify;
+}
+
+header h1 {
+    font-size: 50px;
+}
+
+nav {
+    text-align: center;
+}
+
+nav ul {
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+    height: 30px;
+}
+
+nav a {
+    color: black;
+    font-family: Helvetica, sans-serif;
+    font-size: 25px;
+    padding: 5px;
+}
+
+#html h1,
+#html h2,
+#html h3,
+#html-nav {
+    color: hsl(0, 60%, 60%);
+}
+
+#html strong {
+    color: hsl(0, 60%, 30%);
+}
+
+#html nav a {
+    color: hsl(0, 60%, 35%);
+    font-size: 20px;
+}
+
+hr {
+    margin: 35px 0;
+    width: 100%;
+}
+
+#css h1,
+#css h2,
+#css h3,
+#css-nav {
+    color: hsl(180, 60%, 60%);
+}
+
+#css strong {
+    color: hsl(180, 60%, 30%);
+}
+
+#css nav a {
+    color: hsl(180, 60%, 35%);
+    font-size: 20px;
+}
+
 .selector {
-    background-color: lightgray;
+    background-color: hsl(210, 60%, 90%);
+}
+
+.tag {
+    background-color: hsl(0, 60%, 90%);
     font-family: monospace;
 }
 
@@ -10,6 +112,12 @@
 
 .tag:after {
     content: ">";
+}
+
+
+.property {
+    background-color: hsl(180, 60%, 90%);
+    font-family: monospace;
 }
 
 #figure-1 img,
@@ -22,20 +130,63 @@
     width: 350px;
 }
 
-#figure-2 img {
-    width: 500px;
+#html figcaption a {
+    color: hsl(0, 60%, 35%);
 }
 
-.global {
-    color: lightcoral;
+#css figcaption a {
+    color: hsl(180, 60%, 35%);;
 }
 
 .attribute,
-.property {
-    background-color: lightgoldenrodyellow;
+.global {
+    background-color: hsl(30, 100%, 88%);
     font-family: monospace;
 }
 
 .attribute-desc:before {
     content: "–";
+}
+
+table {
+    border-radius: 2px;
+    border-collapse: collapse;
+    border-spacing: 2px;
+    max-width: 65em;
+    min-width: 20em;
+    margin: 0 auto;
+}
+
+th {
+    padding: 5px;
+}
+
+td {
+    padding: 0 5px;
+}
+
+#html table {
+    border: solid hsl(0, 60%, 30%) 2px;
+}
+
+#html th {
+    border: solid hsl(0, 60%, 30%) 2px;
+    background-color: hsl(0, 60%, 90%);
+}
+
+#html td {
+    border: solid hsl(0, 60%, 30%) 1px;
+}
+
+#css table {
+    border: solid hsl(180, 60%, 30%) 2px;
+}
+
+#css th {
+    background-color: hsl(180, 60%, 90%);
+    border: solid hsl(180, 60%, 30%) 2px;
+}
+
+#css td {
+    border: solid hsl(180, 60%, 30%) 1px;
 }
