@@ -4,4 +4,4 @@ This repository is a collection of projects that I will be completing as I learn
 |--------------------------------------------------------------------------------------|----------------------------|
 | [1. Dasmoto's Arts & Crafts (Netlify)](https://tourmaline-mousse-41395e.netlify.app) | HTML & CSS fundamentals.   |
 | [2. HTML and CSS Cheatsheet (Netlify)](https://rad-beijinho-644a54.netlify.app)      | More advanced HTML and CSS. Design and color theory. |
-| 3. Website Design Guide                                                              | Design principles more advanced CSS |
+| 3. Website Design Guide                                                              | Design principles CSS grid |

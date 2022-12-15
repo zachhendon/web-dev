@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Website Design Guide</title>
+    <link href="resources/css/index.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <img src="resources/images/color-wheel.png" id="color-wheel">
+      <h1>Website Design Guide</h1>
+    </header>
+    <main>
+      <section id="color-schemes">
+        <h2>Color Schemes</h2>
+        <article id="monochromatic">
+          <h3>Monochromatic</h3>
+          <p class="description">Each color only varies in saturation.</p>
+          <p class="usage"><em>Used for designs where contrast is not necessary
+              such as charts
+              and graphs.</em></p>
+          <div id="monochromatic-1" class="pallette">
+            <p>#F65555<br>hsl(0, 90%, 65%)</p>
+            <p>#DB7070<br>hsl(0, 60%, 65%)</p>
+            <p>#C18B8B<br>hsl(0, 30%, 65%)</p>
+          </div>
+          <div id="monochromatic-2" class="pallette">
+            <p>#0AC20A<br>hsl(120, 90%, 40%)</p>
+            <p>#29A329<br>hsl(120, 60%, 40%)</p>
+            <p>#478547<br>hsl(120, 30%, 40%)</p>
+          </div>
+        </article>
+        <article id="analogous">
+          <h3>Analogous</h3>
+          <p class="description">Consists of thee adjacent colors (usually 30
+            hue apart).</p>
+          <p class="usage"><em>Great for creating softer palletes with less
+              contrast. Useful
+              for creating warm or cool schemes.</em></p>
+          <div id="analogous-1" class="pallette">
+            <p>#E09952<br>hsl(30, 70%, 60%)</p>
+            <p>#E0E052<br>hsl(60, 70%, 60%)</p>
+            <p>#99E052<br>hsl(90, 70%, 60%)</p>
+          </div>
+          <div id="analogous-2" class="pallette">
+            <p>#9CC9C9<br>hsl(180, 30%, 70%)</p>
+            <p>#9CB3C9<br>hsl(210, 30%, 70%)</p>
+            <p>#9C9CC9<br>hsl(240, 30%, 70%)</p>
+          </div>
+        </article>
+        <article id="complementary">
+          <h3>Complementary</h3>
+          <p class="description">Two colors that are on opposite sides.</p>
+          <p class="usage"><em>Used to create the highest possible amount of
+              contrast.</em></p>
+          <div id="complementary-1" class="pallette">
+            <p>#339933<br>hsl(120, 50%, 40%)</p>
+            <p>#993399<br>hsl(300, 50%, 40%)</p>
+          </div>
+          <div id="complementary-2" class="pallette">
+            <p>#D98026<br>hsl(30, 70%, 50%)</p>
+            <p>#2680D9<br>hsl(210, 70%, 50%)</p>
+          </div>
+        </article>
+        <article id="square">
+          <h3>Square</h3>
+          <p class="description">Four equidistant colors.</p>
+          <p class="usage"><em>Great for creating interest and substantial
+              contrast. Can work well on
+              either black or white backgrounds</em></p>
+          <div id="square-1" class="pallette">
+            <p>#DF8020<br>hsl(30, 75%, 50%)</p>
+            <p>#20DF20<br>hsl(120, 75%, 50%)</p>
+            <p>#2080DF<br>hsl(210, 75%, 50%)</p>
+            <p>#DF20DF<br>hsl(300, 75%, 50%)</p>
+          </div>
+          <div id="square-2" class="pallette">
+            <p>#FAFA9E<br>hsl(60, 90%, 80%)</p>
+            <p>#9EFACC<br>hsl(150, 90%, 80%)</p>
+            <p>#9E9EFA<br>hsl(240, 90%, 80%)</p>
+            <p>#FA9ECC<br>hsl(330, 90%, 80%)</p>
+          </div>
+        </article>
+        <article id="triadic">
+          <h3>Triadic</h3>
+          <p class="description">Three equidistant colors.</p>
+          <p class="usage"><em>Another option to create a high level of
+              contrast. Best
+              practice to choose a primary color.</em></p>
+          <div id="triadic-1" class="pallette">
+            <p>#B8E0CC<br>hsl(150, 40%, 80%)</p>
+            <p>#CCB8E0<br>hsl(270, 40%, 80%)</p>
+            <p>#E0CCB8<br>hsl(30, 40%, 80%)</p>
+          </div>
+          <div id="triadic-2" class="pallette">
+            <p>#596B47<br>hsl(90, 20%, 35%)</p>
+            <p>#47596B<br>hsl(210, 20%, 35%)</p>
+            <p>#6B4759<br>hsl(330, 20%, 35%)</p>
+          </div>
+        </article>
+        <article id="split-complementary">
+          <h3>Split Complementary</h3>
+          <p class="description">One color and the two adjacent to its
+            complementary.</p>
+          <p class="usage"><em>Maintains a high level of contrast while allowing
+              for more
+              nuance.</em></p>
+          <div id="split-complementary-1" class="pallette">
+            <p>#A3CCF5<br>hsl(210, 80%, 80%)</p>
+            <p>#F5A3A3<br>hsl(0, 80%, 80%)</p>
+            <p>#F5F5A3<br>hsl(60, 80%, 80%)</p>
+          </div>
+          <div id="split-complementary-2" class="pallette">
+            <p>#8A4D0F<br>hsl(30, 80%, 30%)</p>
+            <p>#0F8A8A<br>hsl(180, 80%, 30%)</p>
+            <p>#0F0F8A<br>hsl(240, 80%, 30%)</p>
+          </div>
+        </article>
+        <article id="tetradic-rectangle">
+          <h3>Tetradic/Rectangle</h3>
+          <p class="description">Two doubly-adjacent colors on opposite sides.</p>
+          <p class="usage"><em>Creates two bolder colors and two subtler colors.</em></p>
+          <div id="tetradic-rectangle-1" class="pallette">
+            <p>#7E0DF0<br>hsl(270, 90%, 50%)</p>
+            <p>#F20D7F<br>hsl(330, 90%, 50%)</p>
+            <p>#7FF20D<br>hsl(90, 90%, 50%)</p>
+            <p>#0DF27F<br>hsl(150, 90%, 50%)</p>
+          </div>
+          <div id="tetradic-rectangle-2" class="pallette">
+            <p>#CFFCFC<br>hsl(180, 90%, 90%)</p>
+            <p>#CFFCCF<br>hsl(120, 90%, 90%)</p>
+            <p>#FCCFCF<br>hsl(360, 90%, 90%)</p>
+            <p>#FCCFFC<br>hsl(300, 90%, 90%)</p>
+          </div>
+        </article>
+      </section>
+      <section id="fonts">
+        <h2>Fonts</h2>
+        <article id="serif">
+          <h3>Serif</h3>
+          <p>Has little strokes (serifs).</p>
+          <p><em>Used for the body and heading. Traditional and professional.</em></p>
+          <div class="times-new-roman">
+            <h4>Times New Roman</h4>
+            <p>The quick brown fox jumps over the lazy dog.</p>
+            <p><b>The quick brown fox jumps over the lazy dog.</b></p>
+            <p><i>The quick brown fox jumps over the lazy dog.</i></p>
+          </div>
+          <div class="georgia">
+            <h4>Georgia</h4>
+            <p>The quick brown fox jumps over the lazy dog.</p>
+            <p><b>The quick brown fox jumps over the lazy dog.</b></p>
+            <p><i>The quick brown fox jumps over the lazy dog.</i></p>
+          </div>
+          <article id="sans-serif">
+            <h3>Sans Serif</h3>
+            <p>Does not have little strokes (serifs).</p>
+            <p><em>Used for the body and heading. More modern and simplistic.</em></p>
+            <div class="helvetica">
+              <h4>Helvetica</h4>
+              <p>The quick brown fox jumps over the lazy dog.</p>
+              <p><b>The quick brown fox jumps over the lazy dog.</b></p>
+              <p><i>The quick brown fox jumps over the lazy dog.</i></p>
+            </div>
+            <div class="arial">
+              <h4>Arial</h4>
+              <p>The quick brown fox jumps over the lazy dog.</p>
+              <p><b>The quick brown fox jumps over the lazy dog.</b></p>
+              <p><i>The quick brown fox jumps over the lazy dog.</i></p>
+            </div>
+          </article>
+          <article id="monospace">
+            <h3>Monospace</h3>
+            <p>Each letter takes up the same space.</p>
+            <p><em>Useful for easily distinguishing code from text.</em></p>
+            <div class="courier-new">
+              <h4>Courier New</h4>
+              <p>The quick brown fox jumps over the lazy dog.</p>
+              <p><b>The quick brown fox jumps over the lazy dog.</b></p>
+              <p><i>The quick brown fox jumps over the lazy dog.</i></p>
+            </div>
+            <div class="roboto-mono">
+              <h4>Roboto Mono</h4>
+              <p>The quick brown fox jumps over the lazy dog.</p>
+              <p><b>The quick brown fox jumps over the lazy dog.</b></p>
+              <p><i>The quick brown fox jumps over the lazy dog.</i></p>
+            </div>
+          </article>
+          <article id="script">
+            <h3>Script</h3>
+            <p>Like cursive handwriting.</p>
+            <p><em>Used for headings. Displays elegance and quality.</em></p>
+            <div class="broadley">
+              <h4>Broadley</h4>
+              <p>The quick brown fox jumps over the lazy dog.</p>
+              <p><b>The quick brown fox jumps over the lazy dog.</b></p>
+              <p><i>The quick brown fox jumps over the lazy dog.</i></p>
+            </div>
+            <div class="monarda">
+              <h4>Monarda</h4>
+              <p>The quick brown fox jumps over the lazy dog.</p>
+              <p><b>The quick brown fox jumps over the lazy dog.</b></p>
+              <p><i>The quick brown fox jumps over the lazy dog.</i></p>
+            </div>
+          </article>
+        </section>
+      </main>
+    </body>
+  </html>
