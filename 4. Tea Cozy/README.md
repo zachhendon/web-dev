@@ -1,1 +1,1 @@
-This project focuses on learning the features of CSS Flexbox by implementing a [design spec] from Codecademy.
+This project focuses on learning the features of CSS Flexbox by implementing a [design spec](resources/images/design-spec.jpg) from Codecademy.
