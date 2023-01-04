@@ -1,0 +1,154 @@
+* {
+  font-family: Helvetica, sans-serif;
+  font-size: 22px;
+  color: seashell;
+  background-color: black;
+  opacity: 0.9;
+  text-align: center;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 25px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+h5 {
+  font-size: 15px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid seashell;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+main {
+  margin-top: 69px;
+}
+
+header img {
+  height: 50px;
+  padding-left: 10px;
+}
+
+nav {
+  height: 69px;
+  padding-right: 12px;
+}
+
+nav a {
+  padding: 0 12px;
+  text-decoration: underline;
+}
+nav a:hover {
+  color: hsl(25, 100%, 90%);
+  cursor: pointer;
+}
+
+section {
+  scroll-margin-top: 69px;
+}
+
+#mission {
+  height: 700px;
+  width: 1200px;
+  margin: auto;
+  background-image: url("../images/mission-background.jpg");
+}
+
+#mission-content {
+  align-self: center;
+  width: 100%;
+}
+
+#mission h2, 
+#mission h4 {
+  margin: 15px 0;
+}
+
+#monthly-tea {
+  width: 1000px;
+  margin: 75px auto;
+  flex-direction: column;
+}
+
+#monthly-tea-images {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#monthly-tea-images img {
+  height: 200px;
+  width: 300px;
+}
+
+#monthly-tea-images figure {
+  margin: 15px;
+}
+
+#locations {
+  height: 500px;
+  width: 1200px;
+  margin: auto;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("../images/locations-background.jpg");
+  justify-content: center;
+}
+
+#location-info div {
+  width: 300px;
+  margin-top: 0;
+  margin: 0 20px;
+}
+
+#location-info {
+  background-color: hsla(0, 0%, 0%, 0);
+}
+
+#locations h2 {
+  margin: 0 auto 15px auto;
+  background-color: hsla(0, 0%, 0%, 0);
+}
+
+#locations * {
+  opacity: 1;
+}
+
+#contact-info {
+  flex-direction: column;
+  height: 200px;
+  justify-content: space-around;
+}
+
+#contact-info h5 {
+  margin: 0;
+}
+
+#copyright h5 {
+  text-align: left;
+  margin-top: 30px;
+  margin-left: 10px;
+}
