@@ -1,0 +1,1 @@
+In this project, I fix a broken website (from Codecademy), ensuring the website adapts to different screen sizes.
