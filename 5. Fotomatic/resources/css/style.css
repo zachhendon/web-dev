@@ -132,7 +132,6 @@ header .mobile {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  height: 43.5rem;
   width: 100%;
   padding: 10.625rem 0;
   background-image: url("../images/banner-landingpage.jpg");
