@@ -1,0 +1,1 @@
+In this project, I redesign the eBay home webpage. I use flexbox and make it accessible for all screen sizes.
