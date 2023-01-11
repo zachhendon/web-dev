@@ -1,0 +1,311 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, sans-serif
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: hsl(0, 0%, 7%);
+  color: white;
+  width: 81%;
+  max-width: 120rem;
+  margin: 2rem auto;
+}
+
+.container {
+  display: flex;
+}
+
+#header {
+  align-items: center;
+  margin: 0 9%;
+}
+
+#logo {
+  width: 18rem;
+  height: 8.2rem;
+  margin-right: 2rem;
+}
+
+#cart {
+  width: 3rem;
+  height: 3rem;
+  margin-left: 2rem;
+  margin-right: 7rem;
+}
+#cart:hover {
+  cursor: pointer;
+}
+
+button {
+  border: none;
+  color: white;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+#search-bar {
+  align-items: center;
+  max-width: 100rem;
+  flex: 1;
+}
+
+#search-bar button {
+  height: 3rem;
+}
+
+#category {
+  border-start-start-radius: 1rem;
+  border-end-start-radius: 1rem;
+  background-color: hsl(0, 0%, 15%);
+  width: 6rem;
+  border-right: solid hsl(0, 0%, 7%) 1px; 
+  text-justify: center;
+}
+#category div {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#category p {
+  font-size: 0.8rem;
+}
+#category img {
+  margin-top: 0.2rem;
+  height: 0.4rem;
+  width: 0.8rem;
+}
+
+#search {
+  background-color: hsl(0, 0%, 20%);
+  flex-grow: 1;
+  min-width: 9.5rem;
+}
+#search div {
+  justify-content: left;
+  align-items: center;
+}
+#search img {
+  width: 1rem;
+  height: 1rem;
+  margin-left: 1.5rem;
+  margin-right: 0.5rem;
+}
+#search p {
+  font-size: 1.5rem;
+  color: hsl(0, 0%, 75%);
+}
+#search:hover {
+  cursor: text;
+}
+
+#magnify {
+  border-start-end-radius: 1rem;
+  border-end-end-radius: 1rem;
+  background-color: hsl(0, 0%, 15%);
+  width: 5rem;
+  border-left: solid hsl(0, 0%, 7%) 1px; 
+}
+#magnify div {
+  justify-content: center;
+}
+#magnify img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+#login {
+  margin-right: 10rem;
+  background-color: hsl(0, 0%, 20%);
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  padding: 0.6rem 2rem;
+  border: solid hsl(0, 0%, 25%) 1px;
+}
+
+#nav {
+  margin-top: 2.5rem; 
+  border-bottom: solid white 1px;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  justify-content: space-around;
+  margin-bottom: 7.5rem;
+}
+
+.nav {
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+.nav img {
+  width: 1rem;
+  height: 0.6rem;
+  margin-left: 0.5rem;
+  align-self: center;
+}
+
+#current-page {
+  text-decoration: underline;
+} 
+
+main {
+  background-color:hsl(0, 0%, 15%);
+  padding-left: 10rem;
+  padding-right: 10rem;
+  margin-bottom: 5rem;
+}
+
+main h2 {
+  padding-top: 3rem;
+  margin-bottom: 1.5rem;
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+h3 {
+  padding: 0.3rem 0 0.3rem 1rem;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.grid {
+  padding-top: 1rem;
+  padding-bottom: 1.5rem;
+  background-color: hsl(0, 0%, 20%);
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+  justify-items: center;
+  height: 20rem;
+  overflow: hidden;
+}
+
+.image img {
+  width: 75%;
+  height: 75%;
+  object-fit: contain;
+}
+
+.image {
+  background-color: hsl(0, 0%, 30%);
+  height: 85%;
+  width: 85%;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 1rem;
+  border: solid hsl(0, 0%, 40%) 1px;
+}
+
+.image:hover {
+  cursor: pointer;
+  background-color: hsl(0, 0%, 35%);
+  border: solid hsl(0, 0%, 45%) 1px;
+}
+
+.product {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.product p {
+  text-align: center;
+  width: 85%;
+  margin: auto;
+}
+
+#shoes h3 {
+  background-color: hsla(9, 80%, 53%, 85%);
+}
+
+#monitors h3 {
+  background-color: hsla(198, 100%, 41%, 85%);
+  margin-top: 5rem;
+
+}
+
+#golf-clubs h3 {
+  background-color: hsla(42, 98%, 53%, 85%);
+  margin-top: 5rem;
+}
+
+#paintings h3 {
+  background-color: hsla(83, 57%, 54%, 85%);
+  margin-top: 5rem;
+}
+
+#paintings {
+  padding-bottom: 7.5rem;
+}
+
+footer {
+  border-top: solid white 1px;
+  padding-top: 25px;
+}
+
+#footer-nav {
+  padding: 0 1rem;
+  justify-content: space-between;
+  margin-bottom: 5rem;
+}
+
+footer li {
+  list-style-type: none;
+}
+
+footer h5 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: hsl(0, 0%, 85%);
+  margin-bottom: 1rem;
+}
+
+#footer-nav a {
+  text-decoration: none;
+  color: hsl(0, 0%, 85%);
+  line-height: 2rem;
+}
+
+#footer-nav a:hover {
+  text-decoration: underline;
+}
+
+footer a {
+  color: white;
+}
+
+footer a:hover {
+  color: hsl(0, 0%, 85%);
+}
+
+/* @media only screen and (max-width: 1200px) {
+  main figure div {
+    height: 10rem;
+    width: 10rem;
+  }
+
+  main section figcaption {
+    width: 10rem;
+  }
+} */
+
+

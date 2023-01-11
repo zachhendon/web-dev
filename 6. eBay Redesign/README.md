@@ -1,1 +1,1 @@
-In this project, I redesign the eBay home webpage. I use flexbox and make it accessible for all screen sizes.
+In this project, I redesign the eBay home webpage. I created a prototype in Figma. This project uses flexbox and is accessible for all screen sizes.
