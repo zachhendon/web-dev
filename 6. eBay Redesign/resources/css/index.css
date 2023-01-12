@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: Helvetica, sans-serif
+  font-family: Helvetica, sans-serif;
 }
 
 html {
@@ -13,11 +13,16 @@ body {
   color: white;
   width: 81%;
   max-width: 120rem;
+  min-width: 30rem;
   margin: 2rem auto;
 }
 
 .container {
   display: flex;
+}
+
+.grid {
+  display: grid;
 }
 
 #header {
@@ -31,14 +36,19 @@ body {
   margin-right: 2rem;
 }
 
-#cart {
+#cart,
+#mobile-cart {
   width: 3rem;
   height: 3rem;
   margin-left: 2rem;
   margin-right: 7rem;
 }
-#cart:hover {
+#cart:hover,
+#mobile-cart:hover {
   cursor: pointer;
+}
+#mobile-cart-div {
+  display: none;
 }
 
 button {
@@ -65,8 +75,11 @@ button:hover {
   border-end-start-radius: 1rem;
   background-color: hsl(0, 0%, 15%);
   width: 6rem;
-  border-right: solid hsl(0, 0%, 7%) 1px; 
+  border-right: solid hsl(0, 0%, 7%) 1px;
   text-justify: center;
+}
+#category:hover {
+  background-color: hsl(0, 0%, 17%);
 }
 #category div {
   flex-direction: column;
@@ -110,7 +123,10 @@ button:hover {
   border-end-end-radius: 1rem;
   background-color: hsl(0, 0%, 15%);
   width: 5rem;
-  border-left: solid hsl(0, 0%, 7%) 1px; 
+  border-left: solid hsl(0, 0%, 7%) 1px;
+}
+#magnify:hover {
+  background-color: hsl(0, 0%, 17%);
 }
 #magnify div {
   justify-content: center;
@@ -128,14 +144,22 @@ button:hover {
   padding: 0.6rem 2rem;
   border: solid hsl(0, 0%, 25%) 1px;
 }
+#login:hover {
+  background-color: hsl(0, 0%, 25%);
+  border: solid hsl(0, 0%, 30%) 1px;
+}
 
 #nav {
-  margin-top: 2.5rem; 
+  margin-top: 2.5rem;
   border-bottom: solid white 1px;
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
   justify-content: space-around;
   margin-bottom: 7.5rem;
+}
+
+#mobile-nav {
+  display: none;
 }
 
 .nav {
@@ -161,12 +185,12 @@ button:hover {
   align-self: center;
 }
 
-#current-page {
+#nav-home {
   text-decoration: underline;
-} 
+}
 
 main {
-  background-color:hsl(0, 0%, 15%);
+  background-color: hsl(0, 0%, 15%);
   padding-left: 10rem;
   padding-right: 10rem;
   margin-bottom: 5rem;
@@ -185,16 +209,13 @@ h3 {
   font-size: 2rem;
 }
 
-.grid {
+section .grid {
   padding-top: 1rem;
-  padding-bottom: 1.5rem;
+  padding-bottom: 2rem;
   background-color: hsl(0, 0%, 20%);
-  display: grid;
   grid-template-columns: repeat(6, 1fr);
   align-items: center;
   justify-items: center;
-  height: 20rem;
-  overflow: hidden;
 }
 
 .image img {
@@ -205,8 +226,8 @@ h3 {
 
 .image {
   background-color: hsl(0, 0%, 30%);
-  height: 85%;
-  width: 85%;
+  height: 75%;
+  width: 75%;
   border-radius: 50%;
   justify-content: center;
   align-items: center;
@@ -240,7 +261,6 @@ h3 {
 #monitors h3 {
   background-color: hsla(198, 100%, 41%, 85%);
   margin-top: 5rem;
-
 }
 
 #golf-clubs h3 {
@@ -260,6 +280,39 @@ h3 {
 footer {
   border-top: solid white 1px;
   padding-top: 25px;
+}
+
+footer .grid {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+footer .desktop {
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+#buy-help {
+  grid-column: 1 / span 4;
+}
+
+#connected-about {
+  grid-column: 5 / span 2;
+}
+
+#buy-sell {
+  width: 50%;
+}
+
+#tools-help {
+  width: 50%;
+}
+
+#connected-community {
+  width: 50%;
+}
+
+.tablet div {
+  width: 50%;
 }
 
 #footer-nav {
@@ -297,15 +350,248 @@ footer a:hover {
   color: hsl(0, 0%, 85%);
 }
 
-/* @media only screen and (max-width: 1200px) {
-  main figure div {
-    height: 10rem;
-    width: 10rem;
+@media only screen and (max-width: 1400px) {
+  #nav-motors {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .product:nth-child(5) {
+    border: solid red;
+    display: none;
   }
 
-  main section figcaption {
-    width: 10rem;
+  section .grid {
+    grid-template-columns: repeat(5, 1fr);
   }
-} */
 
+  #nav-fashion {
+    display: none;
+  }
+}
 
+@media only screen and (max-width: 1200px) {
+  .product:nth-child(6) {
+    border: solid red;
+    display: none;
+  }
+
+  section .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  #nav {
+    flex-direction: column-reverse;
+    justify-items: center;
+    border-bottom: none;
+    margin-bottom: 6rem;
+  }
+
+  .nav {
+    justify-content: center;
+    margin: auto;
+    border-bottom: solid white 1px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  #nav-products {
+    margin-bottom: 1rem;
+  }
+
+  #nav-motors,
+  #nav-fashion {
+    display: inline;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  footer .tablet {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  footer .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .tablet div {
+    width: 100%;
+  }
+
+  #buy-sell {
+    grid-column: 1;
+  }
+
+  #tools-help {
+    grid-column: 2;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  #nav-motors {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  #nav-fashion {
+    display: none;
+  }
+
+  section .grid {
+    grid-template: 1fr 1fr / 1fr 1fr;
+    row-gap: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    row-gap: 1rem;
+    margin-bottom: 2.5rem;
+    overflow: hidden;
+  }
+
+  #logo {
+    width: 9rem;
+    height: 4.1rem;
+  }
+
+  #cart-div {
+    display: none;
+  }
+
+  #mobile-cart-div {
+    display: block;
+    text-align: right;
+    margin-right: 1rem;
+  }
+
+  #mobile-cart {
+    padding: 0;
+    margin: 0;
+  }
+
+  #login {
+    margin: 0;
+  }
+
+  #search-bar {
+    grid-row-start: 2;
+    grid-column: 1 / 4;
+  }
+
+  #nav {
+    display: none;
+  }
+
+  #mobile-nav {
+    display: flex;
+    row-gap: 1rem;
+    column-gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 90%;
+    margin: auto;
+  }
+
+  #mobile-nav a {
+    color: hsl(0, 0%, 90%);
+    text-decoration: none;
+  }
+
+  #mobile-nav img {
+    width: 1rem;
+    height: 0.6rem;
+    margin-left: 0.5rem;
+    align-self: center;
+  }
+
+  header nav {
+    margin-bottom: 3rem;
+  }
+
+  #mobile-nav button {
+    background-color: hsl(0, 0%, 10%);
+    border: solid hsl(0, 0%, 20%) 1px;
+    padding: 0.5rem 1rem;
+    border-radius: 5rem;
+  }
+  #mobile-nav button:hover {
+    background: hsl(0, 0%, 15%);
+    border: solid hsl(0, 0%, 25%) 1px;
+  }
+
+  #mobile-nav button .container {
+    align-items: center;
+  }
+
+  main {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  #footer-nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  footer .container {
+    gap: 0.5rem;
+    flex-direction: column;
+  }
+
+  #connected-about div,
+  #buy-help div {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  body {
+    width: 100%;
+  }
+
+  main {
+    padding: 1rem 2.5rem;
+    margin-bottom: 3rem;
+  }
+
+  main h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  main h3 {
+    font-size: 1.5rem;
+    padding: 0.3rem 0 0.2rem 0.5rem;
+  }
+
+  #footer-nav h5 {
+    font-size: 1.4rem;
+    margin-bottom: 0;
+    border: red;
+  }
+
+  #paintings {
+    padding-bottom: 4.5rem;
+  }
+
+  footer {
+    width: 90%;
+    margin: auto;
+  }
+
+  #footer-nav a {
+    font-size: 0.8rem;
+    line-height: 1.4rem;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+  }
+}
