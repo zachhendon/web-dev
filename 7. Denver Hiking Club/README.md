@@ -1,0 +1,1 @@
+In this project, I am practicing designing an effective website and solidifying my knowledge of css tools and responsive design.
