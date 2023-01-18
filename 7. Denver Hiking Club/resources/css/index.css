@@ -1,0 +1,215 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0
+}
+
+h1,
+h2,
+p {
+  color: hsl(94, 10%, 10%);
+}
+
+h1, h2 {
+  font-family: Montserrat, sans-serif;
+  font-weight: lighter;
+}
+
+h1 {
+  font-size: 6.7rem;
+  line-height: 9rem;
+}
+
+h2 {
+  font-size: 5.1rem;
+  line-height: 6rem;
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.6rem;
+  line-height: 3rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.nav {
+  justify-content: space-between;
+  border-bottom: solid hsla(94, 10%, 10%, 25%) 1px;
+  padding: 0.8rem 4rem;
+}
+
+.nav-info {
+  gap: 2.4rem;
+}
+
+.nav-social-login {
+  gap: 6.4rem;
+}
+
+.nav-social {
+  gap: 2.4rem;
+  align-items: center;
+}
+
+.nav-social img {
+  width: 2.5rem;
+  height: 2.5rem;
+  filter: invert(5%) sepia(7%) saturate(1867%) hue-rotate(53deg) brightness(101%) contrast(88%);
+}
+
+.nav p:hover {
+  cursor: pointer;
+  color: hsl(95, 27%, 27%);
+}
+
+.nav img:hover {
+  cursor: pointer;
+  filter: invert(28%) sepia(7%) saturate(3012%) hue-rotate(52deg) brightness(98%) contrast(79%);
+}
+
+#hero {
+  margin-top: 6.4rem;
+  padding: 16rem 0 16rem 15.5rem;
+  background-image: url("../media/images/hero-background.jpg");
+  background-size: cover;
+  background-position-y: 50%;
+}
+
+#hero-content {
+  flex-direction: column;
+  width: 70rem;
+  gap: 4.8rem;
+}
+
+#hero-desc-button {
+  flex-direction: column;
+  gap: 9.6rem;
+}
+
+.main-button {
+  background-image: linear-gradient(to right, hsl(94, 35%, 20%), hsl(95, 27%, 27%));
+  align-self: center;
+  align-items: center;
+  padding: 2.4rem 4.8rem;
+  gap: 1.6rem;
+  border-radius: 10rem;
+  box-shadow: 0 0.4rem 0.4rem 0 hsla(0, 0%, 0%, 25%);
+}
+
+.main-button p {
+  color: white;
+  font-size: 2.4rem;
+}
+
+.main-button img {
+  width: 2.4rem;
+  height: 2.4rem;
+  filter: invert(100%) sepia(0%) saturate(6007%) hue-rotate(95deg) brightness(116%) contrast(101%);
+}
+
+.main-button:hover {
+  cursor: pointer;
+  background-image: linear-gradient(to right, hsl(94, 35%, 20%), hsla(95, 27%, 27%, 80%));
+}
+
+.main-button:active {
+  gap: 2.4rem;
+}
+
+#adventures {
+  margin-top: 19.2rem;
+  background-color: hsl(95, 27%, 27%);
+}
+
+#adventures-content {
+  flex-direction: column;
+  padding: 9.6rem 0;
+  align-items: center;
+  gap: 4.8rem;
+}
+
+#adventures-gallery {
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0 4rem;
+  gap: 2.4rem;
+}
+
+#adventures-gallery img {
+  max-width: 100%;
+  height: auto;
+}
+
+#events {
+  margin-top: 19.2rem;
+  padding: 9.6rem 0;
+  background-color: hsl(29, 52%, 41%);
+}
+
+#events-content {
+  width: 80%;
+  margin: 0 auto;
+  flex-direction: column;
+  gap: 4.8rem;
+}
+
+#events-title {
+  flex-direction: column;
+  align-items: center;
+}
+
+#events-gallery-button {
+  flex-direction: column;
+  gap: 9.6rem
+}
+
+#events-gallery {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.4rem;
+}
+
+#events-gallery img {
+  max-width: 100%;
+  height: auto;
+}
+
+#events-button-description {
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+#events-button-description-p {
+  font-size: 1.2rem;
+}
+
+#footer-content {
+  margin-top: 19.2rem;
+  flex-direction: column;
+  gap: 6.4rem;
+}
+
+#footer-content h1 {
+  align-self: center;
+  width: 45%;
+  text-align: center;
+}
+
+#footer-content .nav {
+  border-bottom: none;
+  border-top: solid hsla(94, 10%, 10%, 25%) 1px;
+}
