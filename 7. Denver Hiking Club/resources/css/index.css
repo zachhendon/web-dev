@@ -238,17 +238,6 @@ p {
 }
 
 @media only screen and (max-width: 1024px) {
-  .nav-info {
-    display: none;
-  }
-
-  .nav-info-tablet {
-    display: block;
-    width: 2.4rem;
-    height: 2.4rem;
-    align-self: center;
-  }
-
   #hero {
     margin-top: 3.2rem;
     padding: 6.4rem 0 12.8rem 10%;
@@ -290,6 +279,19 @@ p {
 
   #footer-content h1 {
     width: 80%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .nav-info {
+    display: none;
+  }
+
+  .nav-info-tablet {
+    display: block;
+    width: 2.4rem;
+    height: 2.4rem;
+    align-self: center;
   }
 }
 
