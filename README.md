@@ -10,3 +10,4 @@ This repository is a collection of projects that I will be completing as I learn
 | [6. eBay Redesign](6.%20eBay%20Redesign/) ([website](https://astonishing-souffle-fe8c81.netlify.app/))| Design, CSS Flexbox and Grid, and responsive web design |
 | [7. Denver Hiking Club](7.%20Denver%20Hiking%20Club/) ([website](https://wondrous-tanuki-c07a0d.netlify.app/)) | UX, UI, responsive design, flexbox, grid |
 | [8. Jamming](8-jamming) | Javascript, React |
+| [9. Flashcards](9-flashcards) | React, React-Router, Redux/Redux Toolkit, UI/UX |
