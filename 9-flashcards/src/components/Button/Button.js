@@ -1,30 +1,30 @@
 import styles from "./Button.module.css";
 import React from "react";
 
-function PrimaryButton(props) {
+function Button(props) {
   let disabled = props.disabled === true ? true : false;
 
   let children = props.children;
-  if (
-    typeof children !== "string" &&
-    typeof children !== "number" &&
-    React.isValidElement(children) === false
-  ) {
-    if (typeof children === "boolean") {
-      children = children.toString();
-    } else if (typeof children === "undefined") {
-      children = "";
-    } else {
-      children = "Error";
-      disabled = true;
-    }
+  if (typeof children === "string" || typeof children == "number") {
+    children = <p>{children}</p>;
+  } else if (typeof children === "boolean") {
+    children = <p>{Boolean(children).toString()}</p>;
+  } else if (typeof children === "undefined") {
+    children = <p>{""}</p>;
+  } else if (React.isValidElement(children) === false) {
+    children = <p>Error</p>;
+    disabled = true;
   }
 
   return (
-    <button className={styles.button} disabled={disabled}>
-      <p>{children}</p>
+    <button
+      style={{ width: "100%" }}
+      className={styles.button}
+      disabled={disabled}
+    >
+      {children}
     </button>
   );
 }
 
-export default PrimaryButton;
+export default Button;

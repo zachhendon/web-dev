@@ -19,9 +19,12 @@
 }
 
 /* p */
+.div > :nth-child(1) {
+  color: white;
+}
 .div Button > p {
   transition: 0.15s ease-out;
 }
-.div Button:hover > p {
+.div Button:hover > :nth-child(1) {
   color: #191613;
 }
