@@ -1,0 +1,11 @@
+/* Button */
+.div Button {
+  border: 1px solid #312D2B;
+  transition: 0.05s ease-out;
+}
+.div Button:hover {
+  background-color: #312D2B;
+}
+.div Button:active {
+  opacity: 0.9;
+}

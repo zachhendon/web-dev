@@ -1,0 +1,22 @@
+.button {
+  background-color: #B9B0E8;
+  border: none;
+  width: 30rem;
+  height: 20rem;
+  display: block;
+  margin: 0 auto;
+  border-radius: 1rem;
+}
+.button:hover {
+  cursor: pointer;
+  background-image: linear-gradient(to right, #B9B0E8, #B0E8D5);
+}
+.button:active {
+  background-image: linear-gradient(to right, #B9B0E8, #B0E8D5);
+  opacity: 0.9;
+}
+
+.h3 {
+  text-align: center;
+  font-weight: 300;
+}

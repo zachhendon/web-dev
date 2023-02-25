@@ -1,0 +1,37 @@
+/* Button */
+.button {
+  box-sizing: border-box;
+  background-color: transparent;
+  display: flex;
+  padding: 2.4rem 4.8rem;
+  border-radius: 2rem;
+}
+.button:hover {
+  cursor: pointer;
+}
+/* Button disabled */
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border: solid 1px #53504e;
+  transition: none;
+}
+.button:hover:disabled {
+  background-image: none;
+}
+.button:active:disabled {
+  background-image: none;
+  opacity: 0.5;
+}
+/* Button disabled p */
+.button:disabled > p {
+  color: #c5c4c4;
+  transition: none;
+}
+.button:hover:disabled > p {
+  color: #c5c4c4;
+}
+
+.button p {
+  color: white;
+}

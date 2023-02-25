@@ -1,0 +1,27 @@
+/* Button */
+.div Button {
+  border: 1px solid #b0e8d5;
+  background: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0) 50%,
+      #b0e8d5 50%,
+      #b9b0e8 100%
+    )
+    right;
+  background-size: 200%;
+  transition: 0.1s ease-out;
+}
+.div Button:hover {
+  background-position: left;
+}
+.div Button:active {
+  opacity: 0.9;
+}
+
+/* p */
+.div Button > p {
+  transition: 0.15s ease-out;
+}
+.div Button:hover > p {
+  color: #191613;
+}
