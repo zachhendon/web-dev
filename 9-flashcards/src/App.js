@@ -23,6 +23,8 @@ function App() {
 
   useEffect(() => {
     dispatch(createGroup("Group 1"));
+    dispatch(createGroup("Group 2"));
+    dispatch(createGroup("Group 3"));
     dispatch(
       createDeck({
         name: "Deck 1",
@@ -54,14 +56,14 @@ function App() {
     dispatch(
       createDeck({
         name: "Deck 5",
-        group: "Group 1",
+        group: "Group 2",
         description: "This is deck 1 and it is in Group 1",
       })
     );
     dispatch(
       createDeck({
         name: "Deck 6",
-        group: "Group 1",
+        group: "Group 3",
         description: "This is deck 1 and it is in Group 1",
       })
     );

@@ -58,3 +58,6 @@ p {
 .flex {
   display: flex;
 }
+.grid {
+  display: grid;
+}

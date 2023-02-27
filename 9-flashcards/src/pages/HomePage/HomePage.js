@@ -2,6 +2,7 @@ import styles from "./HomePage.module.css";
 import PrimaryButton from "../../components/PrimaryButton/PrimaryButton";
 import { Link } from "react-router-dom";
 import FavoriteDecks from "../../components/FavoriteDecks/FavoriteDecks";
+import GroupsPreview from "../../components/GroupsPreview/GroupsPreview";
 
 function HomePage() {
   return (
@@ -40,6 +41,9 @@ function HomePage() {
         </section>
         <section className={styles.favorites}>
           <FavoriteDecks />
+        </section>
+        <section className={styles.groups}>
+          <GroupsPreview />
         </section>
       </main>
     </>
