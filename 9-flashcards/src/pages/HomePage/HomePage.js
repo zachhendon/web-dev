@@ -1,7 +1,7 @@
 import styles from "./HomePage.module.css";
 import PrimaryButton from "../../components/PrimaryButton/PrimaryButton";
 import { Link } from "react-router-dom";
-import Button from "../../components/Button/Button";
+import FavoriteDecks from "../../components/FavoriteDecks/FavoriteDecks";
 
 function HomePage() {
   return (
@@ -28,15 +28,18 @@ function HomePage() {
                   <path
                     fill="none"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="32"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="32"
                     d="M256 112v288M400 256H112"
                   />
                 </svg>
               </div>
             </PrimaryButton>
           </Link>
+        </section>
+        <section className={styles.favorites}>
+          <FavoriteDecks />
         </section>
       </main>
     </>

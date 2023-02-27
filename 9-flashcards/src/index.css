@@ -9,7 +9,8 @@ html {
 }
 
 main {
-  margin: 0 20rem;
+  width: 104rem;
+  margin: 0 auto;
 }
 
 h1,

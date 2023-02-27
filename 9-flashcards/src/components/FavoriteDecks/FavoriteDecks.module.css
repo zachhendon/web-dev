@@ -1,0 +1,25 @@
+.container {
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+.container h2 {
+  color: #ffffff;
+}
+
+.deckContainer {
+  padding: 2.4rem;
+  justify-content: space-between;
+  gap: 6.4rem;
+  border: 2px solid #312D2B;
+  border-radius: 5px;
+  height: 27rem;
+  box-sizing: border-box;
+  width: 100%;
+  align-items: center;
+}
+.deckContainer button {
+  height: 22rem;
+  flex: 1;
+}
