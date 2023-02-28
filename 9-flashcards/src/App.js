@@ -77,7 +77,7 @@ function App() {
     );
     dispatch(
       practiceDeck({
-        group: "Group 1",
+        group: "Group 2",
         deck: "Deck 5",
       })
     );

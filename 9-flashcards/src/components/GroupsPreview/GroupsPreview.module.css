@@ -14,9 +14,16 @@
   width: 100%;
   box-sizing: border-box;
   padding: 1.6rem 3.2rem;
-  border: solid 2px #312D2B;
+  border: solid 2px #312d2b;
   border-radius: 1.5rem;
   gap: 3.2rem;
+}
+.group:hover {
+  cursor: pointer;
+  background-color: #312d2b;
+}
+.group:active {
+  background-color: #342f2d;
 }
 
 .group div {
@@ -36,4 +43,34 @@
 
 .groups {
   gap: 4.8rem;
+}
+
+.viewAllButton {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  gap: 1.6rem;
+  padding: 2.4rem 0;
+  border: 2px solid #312d2b;
+  border-radius: 10px;
+}
+.viewAllButton:hover {
+  cursor: pointer;
+  background-color: #312d2b;
+}
+.viewAllButton:active {
+  background-color: #342f2d;
+}
+
+.viewAllButton svg {
+  height: 3.2rem;
+  width: 3.2rem;
+  color: white;
+}
+
+.viewAllButton p {
+  text-decoration: none;
+  font-size: 2.8rem;
+  color: white;
 }

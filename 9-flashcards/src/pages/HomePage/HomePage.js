@@ -3,6 +3,7 @@ import PrimaryButton from "../../components/PrimaryButton/PrimaryButton";
 import { Link } from "react-router-dom";
 import FavoriteDecks from "../../components/FavoriteDecks/FavoriteDecks";
 import GroupsPreview from "../../components/GroupsPreview/GroupsPreview";
+import AddDeckButton from "../../components/AddDeckButton/AddDeckButton";
 
 function HomePage() {
   return (
@@ -22,10 +23,8 @@ function HomePage() {
                 <p>Create a new deck</p>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="ionicon"
                   viewBox="0 0 512 512"
                 >
-                  <title>Add</title>
                   <path
                     fill="none"
                     stroke="currentColor"

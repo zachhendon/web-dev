@@ -1,0 +1,20 @@
+.button {
+  background-color: transparent;
+  box-sizing: border-box;
+  border-radius: 1rem;
+  border: solid 1px #C5C4C4;
+  width: 100%;
+  height: 100%;
+}
+
+.svg {
+  color: white;
+  height: 4.8rem;
+  width: 4.8rem;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: #53504E;
+  border: solid 1px #53504E;
+}
