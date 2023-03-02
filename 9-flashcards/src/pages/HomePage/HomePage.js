@@ -3,7 +3,6 @@ import PrimaryButton from "../../components/PrimaryButton/PrimaryButton";
 import { Link } from "react-router-dom";
 import FavoriteDecks from "../../components/FavoriteDecks/FavoriteDecks";
 import GroupsPreview from "../../components/GroupsPreview/GroupsPreview";
-import AddDeckButton from "../../components/AddDeckButton/AddDeckButton";
 
 function HomePage() {
   return (

@@ -7,6 +7,7 @@ import {
   updateFavorites,
 } from "../../features/flashcard/flashcardSlice";
 import { createStore } from "../../app/store";
+import { BrowserRouter } from "react-router-dom";
 
 let store;
 describe("FavoriteDecks", () => {
@@ -18,9 +19,11 @@ describe("FavoriteDecks", () => {
     store.dispatch(createDeck({ name: "Deck 1", group: "Group 1" }));
     store.dispatch(updateFavorites(1));
     render(
-      <Provider store={store}>
-        <FavoriteDecks />
-      </Provider>
+      <BrowserRouter>
+        <Provider store={store}>
+          <FavoriteDecks />
+        </Provider>
+      </BrowserRouter>
     );
     expect(screen.getByText(/favorites/i)).toBeInTheDocument();
     expect(screen.getByText(/deck 1/i)).toBeInTheDocument();
@@ -32,9 +35,11 @@ describe("FavoriteDecks", () => {
     store.dispatch(createDeck({ name: "Deck 3", group: "Group 1" }));
     store.dispatch(updateFavorites(3));
     render(
-      <Provider store={store}>
-        <FavoriteDecks />
-      </Provider>
+      <BrowserRouter>
+        <Provider store={store}>
+          <FavoriteDecks />
+        </Provider>
+      </BrowserRouter>
     );
     expect(screen.getByText(/favorites/i)).toBeInTheDocument();
     expect(screen.getByText(/deck 1/i)).toBeInTheDocument();
@@ -48,9 +53,11 @@ describe("FavoriteDecks", () => {
     store.dispatch(createDeck({ name: "Deck 3", group: "Group 1" }));
     store.dispatch(updateFavorites(2));
     render(
-      <Provider store={store}>
-        <FavoriteDecks />
-      </Provider>
+      <BrowserRouter>
+        <Provider store={store}>
+          <FavoriteDecks />
+        </Provider>
+      </BrowserRouter>
     );
     expect(screen.getByText(/favorites/i)).toBeInTheDocument();
     expect(screen.getByText(/deck 1/i)).toBeInTheDocument();
@@ -63,9 +70,11 @@ describe("FavoriteDecks", () => {
     store.dispatch(createDeck({ name: "Deck 2", group: "Group 1" }));
     store.dispatch(updateFavorites(0));
     render(
-      <Provider store={store}>
-        <FavoriteDecks />
-      </Provider>
+      <BrowserRouter>
+        <Provider store={store}>
+          <FavoriteDecks />
+        </Provider>
+      </BrowserRouter>
     );
     expect(screen.queryByText(/favorites/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/deck 1/i)).not.toBeInTheDocument();
@@ -74,9 +83,11 @@ describe("FavoriteDecks", () => {
   it("does not render the component if there are no decks in state but updateFavorites(1) is run", () => {
     store.dispatch(updateFavorites(1));
     render(
-      <Provider store={store}>
-        <FavoriteDecks />
-      </Provider>
+      <BrowserRouter>
+        <Provider store={store}>
+          <FavoriteDecks />
+        </Provider>
+      </BrowserRouter>
     );
     expect(screen.queryByText(/favorites/i)).not.toBeInTheDocument();
   });

@@ -1,0 +1,86 @@
+nav {
+  border-bottom: solid 1px gray;
+  padding: 0 6.4rem;
+  height: 10rem;
+}
+
+.inactive,
+.active {
+  text-decoration: none;
+  height: 100%;
+  padding: 3.2rem 0;
+  display: flex;
+}
+
+.inactive {
+  height: 100%;
+}
+.active {
+  border-bottom: solid 0.3rem white;
+}
+
+.inactive:hover > .linkText,
+.inactive:hover > .newDeck p,
+.inactive:hover > .newDeck svg,
+.inactive:hover > .profileIcon {
+  color: #B0E8D5;
+}
+
+.linkText {
+  color: white;
+  font-weight: bold;
+  display: block;
+  margin: auto;
+}
+
+.links {
+  gap: 4.8rem;
+}
+
+.newDeck {
+  flex-direction: row;
+  gap: 1.6rem;
+  align-items: center;
+}
+
+.newDeck svg {
+  height: 2.4rem;
+  width: 2.4rem;
+}
+
+.profileIcon {
+  height: 4.8rem;
+  width: 4.8rem;
+}
+
+.nav {
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.user {
+  gap: 3.2rem;
+}
+
+.logoutButton {
+  align-items: center;
+}
+
+.logoutButton p {
+  color: white;
+}
+
+.logoutButton svg {
+  color: white;
+  height: 2.4rem;
+  width: 2.4rem;
+}
+
+.logoutButton button {
+  padding: 1.2rem 2.4rem;
+}
+
+.buttonContent {
+  align-items: center;
+  gap: 0.8rem;
+}

@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import NewDeckPage from "./pages/NewDeckPage/NewDeckPage";
 import GroupsPage from "./pages/GroupsPage/GroupsPage";
@@ -8,6 +8,7 @@ import EditDeckPage from "./pages/EditDeckPage/EditDeckPage";
 import PracticeDeckPage from "./pages/PracticeDeckPage/PracticeDeckPage";
 import TestDeckPage from "./pages/TestDeckPage/TestDeckPage";
 import TestResultsPage from "./pages/TestResultsPage/TestResultsPage";
+import Header from "./layouts/Header/Header";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import {
@@ -85,13 +86,7 @@ function App() {
   }, [dispatch]);
   return (
     <>
-      <header>
-        <nav>
-          <Link to="/" style={{ textDecoration: "none" }}>
-            <p>Home</p>
-          </Link>
-        </nav>
-      </header>
+      <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/new" element={<NewDeckPage />} />
