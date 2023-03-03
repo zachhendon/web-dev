@@ -1,4 +1,7 @@
-/* Button */
+.div {
+  align-items: center;
+}
+
 .div Button {
   border: 1px solid #312D2B;
   transition: 0.05s ease-out;

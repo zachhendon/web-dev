@@ -1,0 +1,42 @@
+.createDeck {
+  margin-top: 4.8rem;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.create {
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.create h1 {
+  color: white;
+}
+
+.create button {
+  padding: 1.6rem 6.4rem;
+}
+
+.titleGroup {
+  align-items: flex-n;
+  gap: 2.4rem;
+}
+
+.titleGroup button {
+  color: white;
+  padding: 0;
+}
+
+.titleGroup svg {
+  height: 2.4rem;
+  width: 2.4rem;
+}
+
+.groupButtonContents {
+  align-items: center;
+  width: 20rem;
+  height: 6.9rem;
+  justify-content: center;
+  gap: 1.6rem;
+}

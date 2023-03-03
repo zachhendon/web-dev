@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 function AddDeckButton() {
   return (
-    <Link to="/new">
       <button className={styles.button}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +19,6 @@ function AddDeckButton() {
           />
         </svg>
       </button>
-    </Link>
   );
 }
 

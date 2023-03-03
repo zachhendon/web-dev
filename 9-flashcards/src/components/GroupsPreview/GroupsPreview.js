@@ -3,6 +3,7 @@ import DeckPreview from "../DeckPreview/DeckPreview";
 import { useSelector } from "react-redux";
 import AddDeckButton from "../AddDeckButton/AddDeckButton";
 import { Link } from "react-router-dom";
+import SecondaryButton from "../SecondaryButton/SecondaryButton";
 
 function GroupsPreview() {
   let key = 0;
@@ -17,23 +18,25 @@ function GroupsPreview() {
         <Link
           to={"/deck/" + deck.name + "/practice"}
           style={{ textDecoration: "none", width: "100%" }}
+          key={key}
         >
-          <DeckPreview key={key} text={deck.name} />
+          <DeckPreview text={deck.name} />
         </Link>
       );
     });
 
     for (let i = 4 - decks.length; i > 0; i--) {
       key++;
-      decks.push(<AddDeckButton key={key} />);
+      decks.push(
+        <Link to="/new" key={key}>
+          <AddDeckButton />
+        </Link>
+      );
     }
 
     return (
-      <Link
-        to={"/groups/" + group.name}
-        style={{ textDecoration: "none", width: "100%" }}
-      >
-        <div key={index} className={"flex " + styles.group}>
+      <div className={"flex " + styles.group} key={index}>
+        <div className={"flex " + styles.groupEdit}>
           <h3
             style={{
               color: "white",
@@ -43,9 +46,12 @@ function GroupsPreview() {
           >
             {group.name}
           </h3>
-          <div className="grid">{decks}</div>
+          <Link to={"/groups/" + group.name} style={{ textDecoration: "none" }}>
+            <SecondaryButton>View</SecondaryButton>
+          </Link>
         </div>
-      </Link>
+        <div className={"grid " + styles.deckGrid}>{decks}</div>
+      </div>
     );
   });
 

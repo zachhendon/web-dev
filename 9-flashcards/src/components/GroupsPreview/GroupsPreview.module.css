@@ -18,15 +18,13 @@
   border-radius: 1.5rem;
   gap: 3.2rem;
 }
-.group:hover {
-  cursor: pointer;
-  background-color: #312d2b;
-}
-.group:active {
-  background-color: #342f2d;
+
+.groupEdit {
+  align-content: center;
+  justify-content: space-between;
 }
 
-.group div {
+.deckGrid {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   height: 27rem;

@@ -5,6 +5,7 @@
   display: flex;
   padding: 2.4rem 4.8rem;
   border-radius: 2rem;
+  align-self: center;
 }
 .button:hover {
   cursor: pointer;
@@ -32,3 +33,6 @@
   color: #c5c4c4;
 }
 
+.button p {
+  color: white;
+}

@@ -7,8 +7,12 @@ import { Link } from "react-router-dom";
 function FavoriteDecks() {
   let favoriteDecks = useSelector((state) => state.flashcard.favoriteDecks);
   favoriteDecks = favoriteDecks.map((deck, index) => (
-    <Link to={"/deck/" + deck.name + "/practice"} style={{ textDecoration: "none", width: "100%" }}>
-      <DeckPreview key={index} text={deck.name} />
+    <Link
+      to={"/deck/" + deck.name + "/practice"}
+      style={{ textDecoration: "none", width: "100%" }}
+      key={index}
+    >
+      <DeckPreview text={deck.name} />
     </Link>
   ));
 
