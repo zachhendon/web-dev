@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 function SecondaryButton(props) {
   return (
     <div className={"flex " + styles.div}>
-      <Button disabled={props.disabled}>{props.children}</Button>
+      <Button disabled={props.disabled} error={props.error}>{props.children}</Button>
     </div>
   );
 }

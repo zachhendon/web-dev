@@ -1,0 +1,41 @@
+.form {
+  width: 100%;
+}
+
+.form label {
+  color: white;
+  font-size: 1.6rem;
+}
+
+.form textarea {
+  background-color: transparent;
+  border: solid #787674 1px;
+  border-radius: 1rem;
+  padding: 1.6rem 3.2rem;
+  /* padding: 0; */
+  resize: none;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 3rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+.form textarea:focus {
+  outline: none;
+}
+.form textarea::selection {
+  background-color: hsla(160, 55%, 80%, 65%);
+}
+
+.label {
+  gap: 1.6rem;
+}
+
+.error1,
+.error2 {
+  font-size: 1.6rem;
+  color: #E34850;
+}

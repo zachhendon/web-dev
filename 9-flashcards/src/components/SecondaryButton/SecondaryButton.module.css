@@ -12,3 +12,7 @@
 .div Button:active {
   opacity: 0.9;
 }
+
+.div Button p {
+  color: white;
+}

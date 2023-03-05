@@ -1,30 +1,15 @@
 /* Button */
 .div Button {
   border: 1px solid #b0e8d5;
-  background: linear-gradient(
-      to left,
-      rgba(0, 0, 0, 0) 50%,
-      #b0e8d5 50%,
-      #b9b0e8 100%
-    )
-    right;
-  background-size: 200%;
-  transition: 0.1s ease-out;
-}
-.div Button:hover {
-  background-position: left;
-}
-.div Button:active {
-  opacity: 0.9;
-}
-
-/* p */
-.div > :nth-child(1) {
   color: white;
 }
-.div Button > p {
-  transition: 0.15s ease-out;
+.div button:hover {
+  background: linear-gradient(to right, #b0e8d5, #b9b0e8);
 }
-.div Button:hover > :nth-child(1) {
+.div button:hover * {
   color: #191613;
+}
+
+.div Button:active {
+  opacity: 0.9;
 }

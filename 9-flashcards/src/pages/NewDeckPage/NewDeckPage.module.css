@@ -19,13 +19,8 @@
 }
 
 .titleGroup {
-  align-items: flex-n;
+  align-items: flex-start;
   gap: 2.4rem;
-}
-
-.titleGroup button {
-  color: white;
-  padding: 0;
 }
 
 .titleGroup svg {
@@ -34,9 +29,44 @@
 }
 
 .groupButtonContents {
-  align-items: center;
   width: 20rem;
   height: 6.9rem;
+}
+
+.addFlashcards {
+  flex-direction: column;
+  gap: 2.4rem;
+  margin-top: 6.4rem;
+  margin-bottom: 12.8rem;
+}
+
+.addFlashcards h2 {
+  text-align: center;
+}
+
+.flashcards {
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.flashcardsButton {
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+.addFlashcardButton {
+  align-items: center;
   justify-content: center;
+  width: 100%;
+  gap: 2.4rem;
+}
+
+.addFlashcardsTitle {
+  align-items: center;
   gap: 1.6rem;
+}
+
+.addFlashcardsTitle p {
+  font-size: 1.6rem;
+  color: #E34850;
 }

@@ -1,5 +1,5 @@
 import styles from "./HomePage.module.css";
-import PrimaryButton from "../../components/PrimaryButton/PrimaryButton";
+import Button from "../../components/Button/Button";
 import { Link } from "react-router-dom";
 import FavoriteDecks from "../../components/FavoriteDecks/FavoriteDecks";
 import GroupsPreview from "../../components/GroupsPreview/GroupsPreview";
@@ -17,7 +17,7 @@ function HomePage() {
         </section>
         <section className={styles.cta}>
           <Link to="/new" style={{ textDecoration: "none" }}>
-            <PrimaryButton className={styles.cta}>
+            <Button className={styles.ctaBut}>
               <div className={"flex " + styles.ctaButton}>
                 <p>Create a new deck</p>
                 <svg
@@ -34,7 +34,7 @@ function HomePage() {
                   />
                 </svg>
               </div>
-            </PrimaryButton>
+            </Button>
           </Link>
         </section>
         <section className={styles.favorites}>

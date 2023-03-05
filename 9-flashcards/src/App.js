@@ -99,6 +99,8 @@ function App() {
           path="/decks/:deckId/test/results"
           element={<TestResultsPage />}
         />
+        <Route path="/profile" element={<h1>Profile</h1>} />
+        <Route path="/logout" element={<h1>Logout</h1>} />
       </Routes>
     </>
   );

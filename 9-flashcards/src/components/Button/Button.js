@@ -18,7 +18,7 @@ function Button(props) {
 
   return (
     <button
-      style={{ width: "100%" }}
+      style={{ width: "100%", borderColor: props.error ? "#E34850" : null}}
       className={styles.button}
       disabled={disabled}
     >

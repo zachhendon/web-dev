@@ -1,0 +1,52 @@
+.editFlashcard {
+  background-color: #B9B0E8;
+  padding: 16px 32px 32px;
+  flex-direction: column;
+  color: #191613;
+  gap: 3.2rem;
+  border-radius: 1rem;
+}
+
+.flashcardData {
+  justify-content: space-between;
+}
+
+.icons {
+  gap: 3.2rem;
+  align-items: center;
+}
+
+.menu {
+  height: 3.2rem;
+  width: 3.2rem;
+  cursor: move;
+}
+.trash {
+  height: 2.8rem;
+  width: 2.8rem;
+  cursor: pointer;
+}
+.trash:hover {
+  fill: hsla(0, 0%, 20%, 60%);
+}
+.trash:active {
+  fill: hsla(0, 0%, 20%, 40%);
+}
+
+.editFlashcard label {
+  color: #191613;
+}
+
+.editFlashcard textarea {
+  border-color: #191613;
+  color: #191613;
+  padding: 0.8rem 1.6rem;
+}
+
+.editFlashcard textarea::selection {
+  background-color: hsla(10, 0%, 30%, 35%);
+}
+
+.inputs {
+  gap: 1.6rem;
+}

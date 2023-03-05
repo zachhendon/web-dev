@@ -32,7 +32,3 @@
 .button:hover:disabled > p {
   color: #c5c4c4;
 }
-
-.button p {
-  color: white;
-}

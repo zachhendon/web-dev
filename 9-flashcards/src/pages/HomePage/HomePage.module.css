@@ -7,6 +7,24 @@
   margin-top: 6.4rem;
 }
 
+.cta button {
+  background: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0) 50%,
+      #b0e8d5 50%,
+      #b9b0e8 100%
+    )
+    right;
+  background-size: 200%;
+  transition: 0.1s ease-out;
+  color: white;
+  border: solid 1px #b0e8d5;
+}
+.cta button:hover {
+  background-position: left;
+  color: #191613;
+}
+
 .ctaButton {
   align-items: center;
   justify-content: space-between;

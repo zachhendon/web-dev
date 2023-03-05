@@ -1,7 +1,10 @@
 import styles from "./Textbox.module.css";
+import { useState } from "react";
 
 function Textbox(props) {
   function handleInput(event) {
+    props.setValue(event.target.value);
+
     event.target.style.height = "auto";
     event.target.style.height = event.target.scrollHeight + "px";
   }
@@ -11,21 +14,24 @@ function Textbox(props) {
   return (
     <form className={styles.form}>
       <label htmlFor="text-area">
-        <p>{props.label}</p>
+        <div className={"flex " + styles.label}>
+          <p>{props.label}</p>
+          <p className={styles.error1}>{props.error1}</p>
+        </div>
       </label>
       <textarea
         type="text"
         name="textbox"
         placeholder={props.placeholder}
         className={styles.textbox}
+        id={props.id}
         spellCheck="false"
         rows={rows}
         value={props.value}
-        onChange={(event) => {
-          props.setValue(event.target.value);
-        }}
         onInput={handleInput}
+        style={props.error1 || props.error2 ? { borderColor: "#E34850" } : null}
       />
+      <p className={styles.error2}>{props.error2}</p>
     </form>
   );
 }

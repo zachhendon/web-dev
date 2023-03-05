@@ -3,7 +3,7 @@ import Button from "../Button/Button";
 
 function PrimaryButton(props) {
   return (
-    <div className={styles.div}>
+    <div className={styles.div} onClick={props.onClick}>
       <Button disabled={props.disabled}>{props.children}</Button>
     </div>
   );
