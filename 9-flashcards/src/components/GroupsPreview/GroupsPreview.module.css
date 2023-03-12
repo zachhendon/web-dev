@@ -17,6 +17,8 @@
   border: solid 2px #312d2b;
   border-radius: 1.5rem;
   gap: 3.2rem;
+  min-height: 20rem;
+  overflow: auto;
 }
 
 .groupEdit {
@@ -25,8 +27,6 @@
 }
 
 .deckGrid {
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
   height: 27rem;
   row-gap: 3.2rem;
   column-gap: 2.4rem;

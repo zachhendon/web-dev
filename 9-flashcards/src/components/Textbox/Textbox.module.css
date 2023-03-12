@@ -12,7 +12,6 @@
   border: solid #787674 1px;
   border-radius: 1rem;
   padding: 1.6rem 3.2rem;
-  /* padding: 0; */
   resize: none;
   color: white;
   font-family: "Open Sans", sans-serif;
@@ -38,4 +37,9 @@
 .error2 {
   font-size: 1.6rem;
   color: #E34850;
+}
+
+.button {
+  position: absolute;
+  bottom: 0;
 }

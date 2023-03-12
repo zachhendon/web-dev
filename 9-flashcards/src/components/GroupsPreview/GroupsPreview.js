@@ -5,14 +5,18 @@ import AddDeckButton from "../AddDeckButton/AddDeckButton";
 import { Link } from "react-router-dom";
 import SecondaryButton from "../SecondaryButton/SecondaryButton";
 
-function GroupsPreview() {
+function GroupsPreview(props) {
+  let rows = props.rows ? props.rows : 2;
+  let columns = props.columns ? props.columns : 2;
+  const numDecks = rows * columns;
+
   let key = 0;
   let groups = useSelector((state) => state.flashcard.groups);
   groups = groups.filter((group) => group.decks.length !== 0);
 
   let groupsSlice = groups.slice(0, 2);
   groupsSlice = groupsSlice.map((group, index) => {
-    let decks = group.decks.slice(0, 4).map((deck) => {
+    let decks = group.decks.slice(0, numDecks).map((deck) => {
       key++;
       return (
         <Link
@@ -25,7 +29,7 @@ function GroupsPreview() {
       );
     });
 
-    for (let i = 4 - decks.length; i > 0; i--) {
+    for (let i = numDecks - decks.length; i > 0; i--) {
       key++;
       decks.push(
         <Link to="/new" key={key}>
@@ -50,7 +54,15 @@ function GroupsPreview() {
             <SecondaryButton>View</SecondaryButton>
           </Link>
         </div>
-        <div className={"grid " + styles.deckGrid}>{decks}</div>
+        <div
+          className={"grid " + styles.deckGrid}
+          style={{
+            gridTemplateColumns: "1fr ".repeat(columns),
+            gridTemplateRows: "1fr ".repeat(rows),
+          }}
+        >
+          {decks}
+        </div>
       </div>
     );
   });
@@ -80,7 +92,12 @@ function GroupsPreview() {
   return (
     <div className={"flex " + styles.container}>
       <h2>Groups</h2>
-      <div className={"flex " + styles.groups}>{groupsSlice}</div>
+      <div
+        className={"flex " + styles.groups}
+        style={{ flexDirection: props.column ? "column" : "row" }}
+      >
+        {groupsSlice}
+      </div>
       {groupsButton}
     </div>
   );

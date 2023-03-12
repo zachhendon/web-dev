@@ -1,0 +1,86 @@
+.newGroup {
+  margin-top: 4.8rem; 
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.group {
+  width: 100%;
+  flex-direction: column;
+  padding: 0 6.4rem;
+  border: 3px solid #312D2B;
+  border-radius: 1.5rem;
+  padding: 2.4rem 6.4rem 4.8rem;
+  gap: 4.8rem;
+  align-items: center;
+}
+
+.groupDecks {
+  width: 100%;
+  gap: 3.2rem;
+}
+
+.groupDecks button {
+  padding-top: 25%;
+  padding-bottom: 25%;
+}
+
+.groups {
+  flex-direction: column;
+  gap: 3.2rem;
+  margin-top: 6.4rem;
+  margin-bottom: 12.8rem;
+}
+
+.viewAllButton {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  gap: 1.6rem;
+  padding: 2.4rem 0;
+  border: 2px solid #312d2b;
+  border-radius: 10px;
+}
+.viewAllButton:hover {
+  cursor: pointer;
+  background-color: #312d2b;
+}
+.viewAllButton:active {
+  background-color: #342f2d;
+}
+
+.viewAllButton svg {
+  height: 3.2rem;
+  width: 3.2rem;
+  color: white;
+}
+
+.viewAllButton p {
+  text-decoration: none;
+  font-size: 2.8rem;
+  color: white;
+}
+
+.button {
+  position: absolute;
+  top: 1.2rem;
+  right: 3.2rem;
+  background-color: transparent;
+  border: none;
+}
+.button:hover {
+  cursor: pointer;
+}
+.button:hover > svg {
+  color: #B0E8D5;
+}
+.button:active > svg {
+  opacity: 0.9;
+}
+
+.button svg {
+  color: white;
+  height: 4rem;
+  width: 4rem;
+}

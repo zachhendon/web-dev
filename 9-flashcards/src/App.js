@@ -26,6 +26,7 @@ function App() {
     dispatch(createGroup("Group 1"));
     dispatch(createGroup("Group 2"));
     dispatch(createGroup("Group 3"));
+
     dispatch(
       createDeck({
         name: "Deck 1",
@@ -63,6 +64,20 @@ function App() {
     );
     dispatch(
       createDeck({
+        name: "Deck 10",
+        group: "Group 2",
+        description: "This is deck 1 and it is in Group 1",
+      })
+    );
+    dispatch(
+      createDeck({
+        name: "Deck 11",
+        group: "Group 2",
+        description: "This is deck 1 and it is in Group 1",
+      })
+    );
+    dispatch(
+      createDeck({
         name: "Deck 6",
         group: "Group 3",
         description: "This is deck 1 and it is in Group 1",
@@ -92,9 +107,9 @@ function App() {
         <Route path="/new" element={<NewDeckPage />} />
         <Route path="/groups" element={<GroupsPage />} />
         <Route path="/groups/:groupId" element={<GroupPage />} />
-        <Route path="/decks/:deckId/edit" element={<EditDeckPage />} />
-        <Route path="/decks/:deckId/practice" element={<PracticeDeckPage />} />
-        <Route path="/decks/:deckId/test" element={<TestDeckPage />} />
+        <Route path="/groups:groupId:deckId/edit" element={<EditDeckPage />} />
+        <Route path="/groups:groupId:deckId/practice" element={<PracticeDeckPage />} />
+        <Route path="/groups:groupId:deckId/test" element={<TestDeckPage />} />
         <Route
           path="/decks/:deckId/test/results"
           element={<TestResultsPage />}

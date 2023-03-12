@@ -21,4 +21,6 @@ function AddDeckButton() {
   );
 }
 
+AddDeckButton.componentName = "AddDeckButton";
+
 export default AddDeckButton;
