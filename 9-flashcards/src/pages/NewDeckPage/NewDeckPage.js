@@ -104,7 +104,7 @@ function NewDeckPage() {
       );
     }
 
-    navigate("/decks/" + title + "/practice");
+    navigate("/decks/" + group + "/" + title +  "/practice");
   }
 
   return (

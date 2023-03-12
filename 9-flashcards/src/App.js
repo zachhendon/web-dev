@@ -107,9 +107,9 @@ function App() {
         <Route path="/new" element={<NewDeckPage />} />
         <Route path="/groups" element={<GroupsPage />} />
         <Route path="/groups/:groupId" element={<GroupPage />} />
-        <Route path="/groups:groupId:deckId/edit" element={<EditDeckPage />} />
-        <Route path="/groups:groupId:deckId/practice" element={<PracticeDeckPage />} />
-        <Route path="/groups:groupId:deckId/test" element={<TestDeckPage />} />
+        <Route path="/decks/:groupId/:deckId/edit" element={<EditDeckPage />} />
+        <Route path="/decks/:groupId/:deckId/practice" element={<PracticeDeckPage />} />
+        <Route path="/decks/:groupId/:deckId/test" element={<TestDeckPage />} />
         <Route
           path="/decks/:deckId/test/results"
           element={<TestResultsPage />}

@@ -20,7 +20,7 @@ function GroupsPreview(props) {
       key++;
       return (
         <Link
-          to={"/deck/" + deck.name + "/practice"}
+          to={"/decks/" + deck.group + "/" + deck.name +  "/practice"}
           style={{ textDecoration: "none", width: "100%" }}
           key={key}
         >

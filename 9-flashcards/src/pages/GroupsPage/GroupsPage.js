@@ -115,7 +115,7 @@ function GroupsPage() {
         if (deck !== undefined && j !== 2) {
           deckList.push(
             <Link
-              to={"/deck/" + deck.name + "/practice"}
+              to={"/decks/" + deck.group + "/" + deck.name +  "/practice"}
               style={{ textDecoration: "none" }}
               key={j}
             >
