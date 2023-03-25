@@ -67,6 +67,12 @@ const flashcardSlice = createSlice({
       if (group === undefined) return;
       const deck = group.decks.find((deck) => deck.name === flashcard.deck);
       if (deck === undefined) return;
+      const Oldflashcard = deck.flashcards.find(
+        (Oldflashcard) =>
+          Oldflashcard.front === flashcard.front &&
+          Oldflashcard.back === flashcard.back
+      );
+      if (Oldflashcard !== undefined) return;
       deck.flashcards.push({
         id: deck.flashcards.length,
         ...flashcard,

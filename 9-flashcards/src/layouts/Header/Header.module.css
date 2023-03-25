@@ -4,6 +4,10 @@ nav {
   height: 10rem;
 }
 
+nav *::selection {
+  background-color: hsla(160, 55%, 80%, 65%);
+}
+
 .inactive,
 .active {
   text-decoration: none;

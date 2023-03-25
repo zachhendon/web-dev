@@ -87,8 +87,24 @@ function App() {
       createFlashcard({
         group: "Group 1",
         deck: "Deck 1",
-        front: "Front of card",
-        back: "Back of card",
+        front: "Front of card 1",
+        back: "Back of card 1",
+      })
+    );
+    dispatch(
+      createFlashcard({
+        group: "Group 1",
+        deck: "Deck 1",
+        front: "Front of card 2",
+        back: "Back of card 2",
+      })
+    );
+    dispatch(
+      createFlashcard({
+        group: "Group 1",
+        deck: "Deck 1",
+        front: "Front of card 3",
+        back: "Back of card 3",
       })
     );
     dispatch(
@@ -110,10 +126,7 @@ function App() {
         <Route path="/decks/:groupId/:deckId/edit" element={<EditDeckPage />} />
         <Route path="/decks/:groupId/:deckId/practice" element={<PracticeDeckPage />} />
         <Route path="/decks/:groupId/:deckId/test" element={<TestDeckPage />} />
-        <Route
-          path="/decks/:deckId/test/results"
-          element={<TestResultsPage />}
-        />
+        <Route path="/decks/:groupId/:deckId/test/results" element={<TestResultsPage />}/>
         <Route path="/profile" element={<h1>Profile</h1>} />
         <Route path="/logout" element={<h1>Logout</h1>} />
       </Routes>

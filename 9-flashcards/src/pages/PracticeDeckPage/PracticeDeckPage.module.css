@@ -1,0 +1,14 @@
+.main {
+  width: 72rem;
+  margin-top: 4.8rem;
+}
+
+.cardInfo {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.4rem;
+}
+
+.buttons {
+  gap: 3.2rem;
+}
