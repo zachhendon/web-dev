@@ -1,47 +1,17 @@
 import styles from "./PracticeFlashcard.module.css";
 import { useState } from "react";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
+import chevronRight from "../../assets/chevronRight";
+import chevronLeft from "../../assets/chevronLeft";
 
 function PracticeFlashcard(props) {
   const [deg, setDeg] = useState(0);
+  const [isChanging, setIsChanging] = useState(false);
   const front = props.front;
   const back = props.back;
   const index = props.index;
   const setIndex = props.setIndex;
   const numCards = props.numCards;
-
-  const chevronRight = (
-    <svg
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M8.25 4.5l7.5 7.5-7.5 7.5"
-      />
-    </svg>
-  );
-  const chevronLeft = (
-    <svg
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M15.75 19.5L8.25 12l7.5-7.5"
-      ></path>
-    </svg>
-  );
 
   function createContent(text, isFront) {
     const sideStyle = isFront ? styles.front : styles.back;
@@ -49,7 +19,10 @@ function PracticeFlashcard(props) {
     return (
       <div
         className={sideStyle + " " + styles.content + " flex"}
-        onClick={() => setDeg(deg + 180)}
+        onClick={() => {
+          setIsChanging(false);
+          setDeg(deg + 180)}
+        }
       >
         <p className={styles.cardNumber}>{`${index + 1}/${numCards}`}</p>
         <div className={styles.text + " flex"}>
@@ -65,7 +38,13 @@ function PracticeFlashcard(props) {
         <div className={styles.card}>
           <div
             className={styles.inner}
-            style={{ transform: `rotateX(${deg}deg)` }}
+            style={{
+              transform: `rotateX(${deg}deg)`,
+              transition:
+                isChanging
+                  ? "transform 0s ease-in-out"
+                  : "transform 0.25s ease-in-out",
+            }}
           >
             {createContent(front, true)}
             {createContent(back, false)}
@@ -77,6 +56,7 @@ function PracticeFlashcard(props) {
           onClick={() => {
             if (index > 0) {
               setIndex(index - 1);
+              setIsChanging(true);
               if (deg % 360 === 180) {
                 setDeg(deg + 180);
               }
@@ -89,6 +69,7 @@ function PracticeFlashcard(props) {
           onClick={() => {
             if (index < numCards - 1) {
               setIndex(index + 1);
+              setIsChanging(true);
               if (deg % 360 === 180) {
                 setDeg(deg + 180);
               }

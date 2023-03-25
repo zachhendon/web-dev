@@ -18,6 +18,9 @@ import {
   updateFavorites,
   practiceDeck,
 } from "./features/flashcard/flashcardSlice";
+import { addCorrect } from "./features/flashcard/testSlice";
+import store from "./app/store";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -115,6 +118,7 @@ function App() {
     );
     dispatch(updateFavorites(3));
   }, [dispatch]);
+
   return (
     <>
       <Header />

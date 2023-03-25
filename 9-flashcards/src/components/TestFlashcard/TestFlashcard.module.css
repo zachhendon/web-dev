@@ -51,6 +51,8 @@
   width: 100%;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  gap: 1.6rem;
 }
 
 .back {
@@ -64,14 +66,20 @@
 .buttons {
   margin: auto;
   width: 72rem;
-  justify-content: space-between;
   gap: 1.6rem;
   margin-top: 1.6rem;
 }
 
-.buttons svg {
-  height: 3.2rem;
-  width: 3.2rem;
-
+.buttons button {
+  padding: 1.6rem 3.2rem;
+  border-radius: 1.6rem;
 }
 
+.buttons svg {
+  height: 3.2rem;
+  width: 6.4rem;
+}
+
+.next svg {
+  padding: 0;
+}

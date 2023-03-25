@@ -1,5 +1,4 @@
 import styles from "./Textbox.module.css";
-import { useState } from "react";
 
 function Textbox(props) {
   function handleInput(event) {
