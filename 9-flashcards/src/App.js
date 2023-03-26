@@ -18,8 +18,6 @@ import {
   updateFavorites,
   practiceDeck,
 } from "./features/flashcard/flashcardSlice";
-import { addCorrect } from "./features/flashcard/testSlice";
-import store from "./app/store";
 
 
 function App() {

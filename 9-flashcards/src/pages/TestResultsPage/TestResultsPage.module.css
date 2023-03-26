@@ -1,0 +1,50 @@
+.score {
+  margin-top: 4.8rem;
+  align-items: center;
+  gap: 4.8rem;
+}
+
+.score svg {
+  width: 15rem;
+  height: 15rem;
+}
+
+.result {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.result svg {
+  height: 4rem;
+  width: 4rem;
+}
+
+.results {
+  margin-top: 4.8rem;
+  column-gap: 3.2rem;
+  row-gap: 1.6rem;
+}
+
+.resultsText {
+  justify-content: space-between;
+}
+
+.bye {
+  flex-direction: column;
+  margin: auto;
+  width: 72rem;
+  gap: 3.2rem;
+}
+
+.bye h1 {
+  align-self: center;
+}
+
+.buttons {
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 2.4rem;
+}
+
+.buttons p {
+  width: 100%;
+}
