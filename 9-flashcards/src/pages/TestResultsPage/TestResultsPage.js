@@ -15,10 +15,10 @@ function TestResultsPage() {
   const greenRatio = 40 * Math.PI * (numCorrect / numTotal);
   const redRatio = 40 * Math.PI * (numIncorrect / numTotal);
 
-  const path = window.location.pathname.split("/");
-  const practice = path.slice(0, 4).concat("practice").join("/");
   const home = "/";
-  const testAgain = path.slice(0, 4).concat("test").join("/");
+  const currPath = window.location.pathname.split("/");
+  const practice = currPath.slice(0, 4).concat("practice").join("/");
+  const testAgain = currPath.slice(0, 4).concat("test").join("/");
 
   const pie = (
     <svg width="100" height="100" viewBox="0 0 50 50">
@@ -81,11 +81,11 @@ function TestResultsPage() {
         <div className={styles.bye + " flex"}>
           <h1>Great Job!</h1>
           <div className={styles.buttons + " grid"}>
-            <Link to={practice} style={{ textDecoration: "none" }}>
-              <PrimaryButton>Practice</PrimaryButton>
-            </Link>
             <Link to={home} style={{ textDecoration: "none" }}>
               <PrimaryButton>Home</PrimaryButton>
+            </Link>
+            <Link to={practice} style={{ textDecoration: "none" }}>
+              <PrimaryButton>Practice</PrimaryButton>
             </Link>
             <Link to={testAgain} style={{ textDecoration: "none" }}>
               <PrimaryButton>Test Again</PrimaryButton>
