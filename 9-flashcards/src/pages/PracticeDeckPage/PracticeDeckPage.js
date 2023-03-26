@@ -1,10 +1,11 @@
 import styles from "./PracticeDeckPage.module.css";
 import PracticeFlashcard from "../../components/PracticeFlashcard/PracticeFlashcard";
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import PrimaryButton from "../../components/PrimaryButton/PrimaryButton";
 import SecondaryButton from "../../components/SecondaryButton/SecondaryButton";
 import { Link } from "react-router-dom";
+import { practiceDeck, updateFavorites } from "../../features/flashcard/flashcardSlice";
 
 function PracticeDeckPage() {
   const [index, setIndex] = useState(0);
@@ -18,6 +19,13 @@ function PracticeDeckPage() {
   const deck = group.decks.find((deck) => deck.name === deckPath);
 
   const arr = deck.flashcards.map((card) => [card.front, card.back]);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(practiceDeck({ group: groupPath, deck: deckPath }));
+    dispatch(updateFavorites(3));
+  }, [])
 
   return (
     <main className={styles.main}>
