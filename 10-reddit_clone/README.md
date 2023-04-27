@@ -1,0 +1,1 @@
+This project uses React and redux toolkit to create a Reddit clone.
