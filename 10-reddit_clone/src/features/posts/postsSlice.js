@@ -9,7 +9,9 @@ const postsSlice = createSlice({
   name: "posts",
   initialState: initialState,
   reducers: {
-    addPost: (state, action) => {},
+    addPost: (state, action) => {
+      state = {"test": true}
+    },
     searchPosts: (state, action) => {},
     filterPosts: (state, action) => {},
     collapseComment: (state, action) => {},
