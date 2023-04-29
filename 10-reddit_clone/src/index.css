@@ -1,0 +1,66 @@
+:root {
+  --primary-color: #ff4500;
+  --secondary-color: #b33000;
+  --tertirary-color: #00b38f;
+  --black: #201a19;
+  --black-90: #373231;
+  --black-75: #585453;
+  --black-50: #8f8c8c;
+  --black-25: #c7c6c5;
+  --black-10: #e9e9e9;
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--black);
+}
+
+main {
+  width: 104rem;
+  margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+}
+.grid {
+  display: grid;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+h1 {
+  font-size: 4.9rem;
+  font-weight: 600;
+}
+h2 {
+  font-size: 3.9rem;
+}
+h3 {
+  font-size: 3.1rem;
+  font-weight: 300;
+}
+h4 {
+  font-size: 2.5rem;
+}
+h5 {
+  font-size: 2rem;
+}
+h6 {
+  font-size: 1.6rem;
+}
+p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 2.1rem;
+  font-weight: 400;
+}
