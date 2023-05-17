@@ -1,0 +1,1 @@
+This project is for practicing basic networking techniques and reinforcing the concepts. It is done in parallel with the video [Full HTTP Networking Course – Fetch and REST APIs in JavaScript](https://www.youtube.com/watch?v=2JYT5f2isg4&list=WL&index=3&t=11004s) from freeCodeCamp and boot.dev.
