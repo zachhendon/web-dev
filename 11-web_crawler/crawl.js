@@ -1,4 +1,31 @@
 const { JSDOM } = require("jsdom");
+const axios = require("axios");
+
+async function crawlPage(currentURL) {
+  console.log(`actively crawling: ${currentURL}`);
+
+  try {
+    const response = await axios.get(currentURL);
+    if (response.status > 399) {
+      console.log(
+        `error in fetch with status code: ${response.status} on page: ${currentURL}`
+      );
+      return;
+    }
+
+    const contentType = response.headers["content-type"];
+    if (!contentType.includes("text/html")) {
+      console.log(
+        `non html response, content type: ${contentType} on page: ${currentURL}`
+      );
+      return;
+    }
+
+    console.log(response.data);
+  } catch (err) {
+    console.log(`error in fetch: ${err.message} on page: ${currentURL}`);
+  }
+}
 
 function getURLsFromHTML(htmlBody, baseURL) {
   const urls = [];
@@ -38,4 +65,5 @@ function normalizeURL(urlString) {
 module.exports = {
   normalizeURL,
   getURLsFromHTML,
+  crawlPage,
 };

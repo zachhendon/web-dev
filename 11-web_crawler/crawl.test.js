@@ -65,8 +65,11 @@ describe("getURLsFromHTML", () => {
       </body>
     </html>
     `;
-    const actual = getURLsFromHTML(html, "https://blog.boot.dev")
-    const expected = ["https://blog.boot.dev/path1/", "https://blog.boot.dev/path2/"]
+    const actual = getURLsFromHTML(html, "https://blog.boot.dev");
+    const expected = [
+      "https://blog.boot.dev/path1/",
+      "https://blog.boot.dev/path2/",
+    ];
     expect(actual).toEqual(expected);
   });
   it("should not include a bad URL", () => {
@@ -79,8 +82,8 @@ describe("getURLsFromHTML", () => {
       </body>
     </html>
     `;
-    const actual = getURLsFromHTML(html, "https://blog.boot.dev")
+    const actual = getURLsFromHTML(html, "https://blog.boot.dev");
     const expected = [];
     expect(actual).toEqual(expected);
-  })
+  });
 });
