@@ -11,3 +11,5 @@ This repository is a collection of projects that I will be completing as I learn
 | [7. Denver Hiking Club](7.%20Denver%20Hiking%20Club/) ([website](https://wondrous-tanuki-c07a0d.netlify.app/)) | UX, UI, responsive design, flexbox, grid |
 | [8. Jamming](8-jamming) | Javascript, React |
 | [9. Flashcards](9-flashcards) | React, React-Router, Redux/Redux Toolkit, UI/UX |
+| [10-reddit_clone](10-reddit_clone) | React, React-Router, Redux Toolkit, UI/UX, external APIs |
+| [11-web_crawler](11-web_crawler) | HTTP, Axios, networking, Jest |

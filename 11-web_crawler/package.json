@@ -1,0 +1,19 @@
+{
+  "name": "11-web_crawler",
+  "version": "1.0.0",
+  "description": "This project is for practicing basic networking techniques and reinforcing the concepts. It is done in parallel with the video [Full HTTP Networking Course – Fetch and REST APIs in JavaScript](https://www.youtube.com/watch?v=2JYT5f2isg4&list=WL&index=3&t=11004s) from freeCodeCamp and boot.dev.",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "jsdom": "^22.0.0"
+  }
+}
