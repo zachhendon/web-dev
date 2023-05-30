@@ -5,7 +5,7 @@ const initialState = {
   posts: [],
   status: "idle",
   query: "",
-  limit: 0,
+  limit: 5,
   sort: "relevance",
   after: "",
   error: "",
@@ -30,7 +30,6 @@ export const searchPosts = createAsyncThunk(
         return;
       }
     } else {
-      console.log(false);
       thunkAPI.dispatch(resetPosts());
     }
 
@@ -89,7 +88,8 @@ const postsSlice = createSlice({
         }
 
         state.status = "succeeded";
-        const newPosts = action.payload.children.map((post) => post.data.title);
+        // const newPosts = action.payload.children.map((post) => post.data.title);
+        const newPosts = action.payload.children;
         for (const post of newPosts) {
           state.posts.push(post);
         }

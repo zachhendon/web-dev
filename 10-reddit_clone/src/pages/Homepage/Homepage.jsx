@@ -3,10 +3,11 @@ import styles from "./Homepage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { searchPosts } from "../../features/posts/postsSlice";
 import { useState, useEffect } from "react";
+import Post from "../../app/common/components/Post";
 
 export default function Homepage() {
-  const [value, setValue] = useState("");
-  const [limit, setLimit] = useState(5);
+  const [value, setValue] = useState(useSelector((state) => state.posts.query));
+  const [limit, setLimit] = useState(useSelector((state) => state.posts.limit));
   const [displayPosts, setDisplayPosts] = useState("");
   const posts = useSelector((state) => state.posts.posts);
   const status = useSelector((state) => state.posts.status);
@@ -44,9 +45,7 @@ export default function Homepage() {
       case "loading":
         setDisplayPosts(
           <>
-            {posts.map((post, index) => (
-              <p key={index}>{"- " + post}</p>
-            ))}
+            {displayPosts}
             <p>Loading...</p>
           </>
         );
@@ -55,9 +54,8 @@ export default function Homepage() {
         setDisplayPosts(
           <>
             {posts.map((post, index) => (
-              <p key={index}>{"- " + post}</p>
+              <Post post={post} key={index} />
             ))}
-            <button onClick={handleMore}>See more...</button>
           </>
         );
         break;
@@ -67,7 +65,7 @@ export default function Homepage() {
             <p style={{ color: "red" }}>Failed to load new posts</p>
             <div>
               {posts.map((post, index) => (
-                <p key={index}>{"- " + post}</p>
+                <Post post={post} key={index} />
               ))}
             </div>
           </>
@@ -77,7 +75,7 @@ export default function Homepage() {
         setDisplayPosts(<p>Search for posts</p>);
         break;
     }
-  }, [status, posts]);
+  }, [status, posts, dispatch, stateLimit, stateSort, value]);
 
   return (
     <>
@@ -106,6 +104,7 @@ export default function Homepage() {
           ></input>
         </form>
         {displayPosts}
+        <button onClick={handleMore}>See more...</button>
       </main>
     </>
   );
