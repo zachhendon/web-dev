@@ -12,7 +12,6 @@ function Post(props) {
     setSubreddit(props.post.data.subreddit);
     setUps(props.post.data.ups);
   }
-  console.log(props.post);
 
   return (
     <>

@@ -43,12 +43,12 @@ export default function Homepage() {
   useEffect(() => {
     switch (status) {
       case "loading":
-        setDisplayPosts(
+        setDisplayPosts((prevDisplayPosts) => {
           <>
-            {displayPosts}
+            {prevDisplayPosts}
             <p>Loading...</p>
-          </>
-        );
+          </>;
+        });
         break;
       case "succeeded":
         setDisplayPosts(
