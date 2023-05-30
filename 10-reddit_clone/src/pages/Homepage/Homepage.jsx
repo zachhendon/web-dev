@@ -6,15 +6,18 @@ import { useState, useEffect } from "react";
 
 export default function Homepage() {
   const [value, setValue] = useState("");
+  const [limit, setLimit] = useState(5);
   const [displayPosts, setDisplayPosts] = useState("");
   const posts = useSelector((state) => state.posts.posts);
   const status = useSelector((state) => state.posts.status);
+  const stateLimit = useSelector((state) => state.posts.limit);
+  const stateSort = useSelector((state) => state.posts.sort);
   const dispatch = useDispatch();
 
   const handleClick = (e) => {
     e.preventDefault();
     if (value !== "") {
-      dispatch(searchPosts(value));
+      dispatch(searchPosts({ query: value, limit, sort: "hot" }));
     }
   };
 
@@ -22,16 +25,53 @@ export default function Homepage() {
     setValue(e.target.value);
   };
 
+  const handleNumberInput = (e) => {
+    setLimit(e.target.value);
+  };
+
+  const handleMore = () => {
+    dispatch(
+      searchPosts({
+        query: value,
+        limit: stateLimit + 5,
+        sort: stateSort,
+      })
+    );
+  };
+
   useEffect(() => {
     switch (status) {
       case "loading":
-        setDisplayPosts(<p>Loading...</p>);
+        setDisplayPosts(
+          <>
+            {posts.map((post, index) => (
+              <p key={index}>{"- " + post}</p>
+            ))}
+            <p>Loading...</p>
+          </>
+        );
         break;
       case "succeeded":
-        setDisplayPosts(posts.map((post, index) => <p key={index}>{"- " + post}</p>));
+        setDisplayPosts(
+          <>
+            {posts.map((post, index) => (
+              <p key={index}>{"- " + post}</p>
+            ))}
+            <button onClick={handleMore}>See more...</button>
+          </>
+        );
         break;
       case "failed":
-        setDisplayPosts(<p>Failed to load posts</p>);
+        setDisplayPosts(
+          <>
+            <p style={{ color: "red" }}>Failed to load new posts</p>
+            <div>
+              {posts.map((post, index) => (
+                <p key={index}>{"- " + post}</p>
+              ))}
+            </div>
+          </>
+        );
         break;
       default:
         setDisplayPosts(<p>Search for posts</p>);
@@ -48,12 +88,22 @@ export default function Homepage() {
       <main>
         <button onClick={handleClick}>Search</button>
         <form onSubmit={handleClick}>
+          <label>Search</label>
           <input
             type="text"
             value={value}
             placeholder="search"
             onInput={handleInput}
           />
+        </form>
+        <form onSubmit={handleClick}>
+          <label>Limit</label>
+          <input
+            type="number"
+            value={limit}
+            placeholder="limit"
+            onInput={handleNumberInput}
+          ></input>
         </form>
         {displayPosts}
       </main>
