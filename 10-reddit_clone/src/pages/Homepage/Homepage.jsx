@@ -8,7 +8,9 @@ import Post from "../../app/common/components/Post/Post";
 export default function Homepage() {
   const [value, setValue] = useState(useSelector((state) => state.posts.query));
   const [limit, setLimit] = useState(useSelector((state) => state.posts.limit));
-  const [displayPosts, setDisplayPosts] = useState("");
+  const searchMessage = "Search for posts";
+  const [displayPosts, setDisplayPosts] = useState(<p>{searchMessage}</p>);
+  const [searched, setSearched] = useState(false);
   const posts = useSelector((state) => state.posts.posts);
   const status = useSelector((state) => state.posts.status);
   const stateLimit = useSelector((state) => state.posts.limit);
@@ -41,14 +43,23 @@ export default function Homepage() {
   };
 
   useEffect(() => {
+    console.log(displayPosts.props.children);
+    setSearched(displayPosts.props.children !== searchMessage);
+  }, [displayPosts]);
+
+  useEffect(() => {
     switch (status) {
       case "loading":
-        setDisplayPosts((prev) => (
-          <>
-            {prev}
+        setDisplayPosts((prev) =>
+          searched ? (
             <p>Loading...</p>
-          </>
-        ));
+          ) : (
+            <>
+              {prev}
+              <p>Loading...</p>
+            </>
+          )
+        );
         break;
       case "succeeded":
         setDisplayPosts(
@@ -72,10 +83,10 @@ export default function Homepage() {
         );
         break;
       default:
-        setDisplayPosts(<p>Search for posts</p>);
+        setDisplayPosts(<p>{searchMessage}</p>);
         break;
     }
-  }, [status, posts, dispatch, stateLimit, stateSort, value]);
+  }, [status, posts, dispatch, stateLimit, stateSort, value, searched]);
 
   return (
     <>
