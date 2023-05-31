@@ -3,7 +3,7 @@ import styles from "./Homepage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { searchPosts } from "../../features/posts/postsSlice";
 import { useState, useEffect } from "react";
-import Post from "../../app/common/components/Post";
+import Post from "../../app/common/components/Post/Post";
 
 export default function Homepage() {
   const [value, setValue] = useState(useSelector((state) => state.posts.query));
@@ -54,7 +54,7 @@ export default function Homepage() {
         setDisplayPosts(
           <>
             {posts.map((post, index) => (
-              <Post post={post} key={index} />
+              <Post postIndex={index} key={index} />
             ))}
           </>
         );
@@ -65,7 +65,7 @@ export default function Homepage() {
             <p style={{ color: "red" }}>Failed to load new posts</p>
             <div>
               {posts.map((post, index) => (
-                <Post post={post} key={index} />
+                <Post postIndex={index} key={index} />
               ))}
             </div>
           </>
