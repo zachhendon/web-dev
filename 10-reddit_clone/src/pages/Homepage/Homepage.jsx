@@ -43,12 +43,12 @@ export default function Homepage() {
   useEffect(() => {
     switch (status) {
       case "loading":
-        setDisplayPosts((prevDisplayPosts) => {
+        setDisplayPosts((prev) => (
           <>
-            {prevDisplayPosts}
+            {prev}
             <p>Loading...</p>
-          </>;
-        });
+          </>
+        ));
         break;
       case "succeeded":
         setDisplayPosts(
@@ -105,6 +105,20 @@ export default function Homepage() {
         </form>
         {displayPosts}
         <button onClick={handleMore}>See more...</button>
+        <button
+          onClick={() =>
+            setDisplayPosts((prev) => {
+              return (
+                <>
+                  {prev}
+                  <p>Loading...</p>
+                </>
+              );
+            })
+          }
+        >
+          Clear
+        </button>
       </main>
     </>
   );
