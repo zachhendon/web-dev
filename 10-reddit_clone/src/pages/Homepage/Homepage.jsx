@@ -105,20 +105,6 @@ export default function Homepage() {
         </form>
         {displayPosts}
         <button onClick={handleMore}>See more...</button>
-        <button
-          onClick={() =>
-            setDisplayPosts((prev) => {
-              return (
-                <>
-                  {prev}
-                  <p>Loading...</p>
-                </>
-              );
-            })
-          }
-        >
-          Clear
-        </button>
       </main>
     </>
   );
