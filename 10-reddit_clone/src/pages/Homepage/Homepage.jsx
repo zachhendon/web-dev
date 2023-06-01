@@ -52,7 +52,6 @@ export default function Homepage() {
   useEffect(() => {
     switch (status) {
       case "loading":
-        // setDisplayPosts((prev) => prev);
         setDisplayPosts((prev) =>
           searched ? (
             <>
@@ -98,7 +97,6 @@ export default function Homepage() {
       </Link>
 
       <main>
-        <p>{"" + searched}</p>
         <button onClick={handleClick}>Search</button>
         <form onSubmit={handleClick}>
           <label>Search</label>

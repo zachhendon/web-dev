@@ -8,6 +8,12 @@ function Post(props) {
   }
   const post = posts[props.postIndex];
   const title = post.data.title;
+
+  const isValidMedia = (url) => {
+    return (
+      ["jpg", "jpeg", "tiff", "png", "gif", "bmp"].indexOf(url.slice(-3)) !== -1
+    );
+  };
   let media;
   if (post.data.is_video) {
     // video
@@ -25,11 +31,14 @@ function Post(props) {
     );
   } else {
     // image
-    const extension = post.data.url.slice(-3);
-    const imgUrl =
-      ["jpg", "jpeg", "tiff", "png", "gif", "bmp"].indexOf(extension) === -1
-        ? post.data.thumbnail
-        : post.data.url;
+    let imgUrl;
+    if (post.data.url && isValidMedia(post.data.url)) {
+      imgUrl = post.data.url;
+    } else if (post.data.thumbnail && isValidMedia(post.data.thumbnail)) {
+      imgUrl = post.data.thumbnail;
+    } else {
+      return;
+    }
     media = (
       <img
         src={imgUrl}
