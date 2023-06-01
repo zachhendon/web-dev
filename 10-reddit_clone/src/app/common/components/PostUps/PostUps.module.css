@@ -8,3 +8,7 @@
   height: 6.4rem;
   width: 6.4rem;
 }
+
+.up:hover, .down:hover {
+  cursor: pointer;
+}

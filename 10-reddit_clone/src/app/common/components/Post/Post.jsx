@@ -3,9 +3,18 @@ import styles from "./Post.module.css";
 import PostUps from "../PostUps/PostUps";
 
 function Post(props) {
+  const error = (
+    <>
+      <p>Sorry, there was an error loading this post</p>
+      <p>
+        ---------------------------------------------------------------------------------------------------------------------------------
+      </p>
+    </>
+  );
+
   const posts = useSelector((state) => state.posts.posts);
   if (posts.length <= props.postIndex) {
-    return;
+    return error;
   }
   const post = posts[props.postIndex];
   const title = post.data.title;
@@ -17,6 +26,9 @@ function Post(props) {
   };
   let media;
   if (post.data.is_video) {
+    if (!post.data.media) {
+      return error;
+    }
     // video
     media = (
       <video
@@ -38,7 +50,7 @@ function Post(props) {
     } else if (post.data.thumbnail && isValidMedia(post.data.thumbnail)) {
       imgUrl = post.data.thumbnail;
     } else {
-      return;
+      return error;
     }
     media = (
       <img
@@ -54,7 +66,7 @@ function Post(props) {
     );
   }
   const subreddit = post.data.subreddit;
-  const ups = <PostUps ups={post.data.ups} />;
+  const ups = <PostUps ups={post.data.ups} postIndex={props.postIndex} />;
 
   return (
     <>
