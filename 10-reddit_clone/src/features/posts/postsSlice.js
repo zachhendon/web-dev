@@ -11,41 +11,52 @@ const initialState = {
   error: "",
 };
 
+const getPosts = async (query, limit, sort, thunkAPI) => {
+  const response = await axios.get("https://www.reddit.com/search.json", {
+    params: {
+      q: query,
+      limit: limit,
+      sort: sort,
+      after: thunkAPI.getState().posts.after,
+    },
+  });
+  const data = response.data.data;
+
+  if (data.children.length === 0) {
+    thunkAPI.dispatch("searchPosts/rejected");
+  }
+  return data;
+};
+
 export const searchPosts = createAsyncThunk(
   "posts/searchPosts",
   async (params, thunkAPI) => {
-    let state = thunkAPI.getState().posts;
-    let limit = params.limit;
+    const state = thunkAPI.getState().posts;
+    const dispatch = thunkAPI.dispatch;
+    const query = params.query;
+    const limit = params.limit;
+    const limitDiff = limit - state.limit;
     const sort = params.sort || "relevance";
 
-    if (
-      params.limit >= state.limit &&
-      state.after !== "" &&
-      params.query === state.query &&
-      params.sort === state.sort
-    ) {
-      limit = params.limit - state.limit;
-      if (limit === 0) {
-        thunkAPI.dispatch(statusSucceeded());
-        return;
-      }
+    if (query !== state.query || sort !== state.sort) {
+      // query changed
+      dispatch(resetPosts());
+      dispatch(setParams(params));
+      return await getPosts(query, limit, sort, thunkAPI);
+    } else if (limitDiff === 0) {
+      // same query, same posts
+      dispatch(statusSucceeded());
+      return;
+    } else if (limitDiff > 0) {
+      // same query, more posts
+      dispatch(setParams(params));
+      return await getPosts(query, limitDiff, sort, thunkAPI);
     } else {
-      thunkAPI.dispatch(resetPosts());
+      // same query, less posts
+      dispatch(setParams(params));
+      dispatch(removePosts(-1 * limitDiff));
+      dispatch(statusSucceeded());
     }
-
-    const response = await axios.get("https://www.reddit.com/search.json", {
-      params: {
-        q: params.query,
-        limit,
-        sort,
-        after: thunkAPI.getState().posts.after,
-      },
-    });
-    if (response.data.data.children.length === 0) {
-      thunkAPI.dispatch("searchPosts/rejected");
-    }
-    thunkAPI.dispatch(setParams(params));
-    return response.data.data;
   }
 );
 
@@ -61,6 +72,9 @@ const postsSlice = createSlice({
       for (const post of posts) {
         state.posts.push(post);
       }
+    },
+    removePosts: (state, action) => {
+      state.posts = state.posts.slice(0, state.posts.length - action.payload);
     },
     setParams: (state, action) => {
       state.query = action.payload.query;
@@ -86,9 +100,7 @@ const postsSlice = createSlice({
         if (action.payload === undefined || action.payload === null) {
           return;
         }
-
         state.status = "succeeded";
-        // const newPosts = action.payload.children.map((post) => post.data.title);
         const newPosts = action.payload.children;
         for (const post of newPosts) {
           state.posts.push(post);
@@ -104,7 +116,8 @@ const postsSlice = createSlice({
 });
 
 export const {
-  addPost,
+  addPosts,
+  removePosts,
   setParams,
   resetPosts,
   statusSucceeded,
