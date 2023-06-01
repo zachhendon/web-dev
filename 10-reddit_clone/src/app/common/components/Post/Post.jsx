@@ -8,51 +8,56 @@ function Post(props) {
   }
   const post = posts[props.postIndex];
   const title = post.data.title;
-  const media = post.data.is_video ? (
-    <video
-      style={{ alignSelf: "center", width: "36rem", height: "auto" }}
-      alt="desc"
-      onclick="this.play()"
-      controls
-    >
-      <source
-        src={post.data.media.reddit_video.fallback_url}
-        type="video/mp4"
-      ></source>
-    </video>
-  ) : ["jpg", "jpeg", "tiff", "png", "gif", "bmp"].indexOf(
-      post.data.url.slice(-3)
-    ) === -1 ? (
-    <img
-      src={post.data.thumbnail}
-      style={{ alignSelf: "center", width: "36rem", height: "auto" }}
-      alt="desc"
-    ></img>
-  ) : (
-    <img
-      src={post.data.url}
-      style={{ alignSelf: "center", width: "36rem", height: "auto" }}
-      alt="desc"
-    ></img>
-  );
+  let media;
+  if (post.data.is_video) {
+    // video
+    media = (
+      <video
+        style={{ alignSelf: "center", width: "36rem", height: "auto" }}
+        alt="desc"
+        onclick="this.play()"
+        controls
+      >
+        <source
+          src={post.data.media.reddit_video.fallback_url}
+          type="video/mp4"
+        ></source>
+      </video>
+    );
+  } else {
+    // image
+    const extension = post.data.url.slice(-3);
+    const imgUrl =
+      ["jpg", "jpeg", "tiff", "png", "gif", "bmp"].indexOf(extension) === -1
+        ? post.data.thumbnail
+        : post.data.url;
+    media = (
+      <img
+        src={imgUrl}
+        style={{
+          alignSelf: "center",
+          width: "auto",
+          height: "36rem",
+          objectFit: "cover",
+        }}
+        alt="desc"
+      ></img>
+    );
+  }
   const subreddit = post.data.subreddit;
   const ups = post.data.ups;
 
   return (
     <>
-      {/* <p>{title}</p>
-      <p>{subreddit}</p>
-      <p>{ups}</p>
-      {thumbnail &&
-        ["jpg", "jpeg", "tiff", "png", "gif", "bmp"].indexOf(
-          thumbnail.slice(-3)
-        ) !== -1 && <embed src={thumbnail} width="200px" alt="description"></embed>} */}
       <div className={"grid " + styles.postComments}>
-        <div className={"flex " + styles.postContent}>
-          <p>{ups}</p>
-          <div className={"flex " + styles.postTitle}>
-            <p>{title}</p>
-            {media}
+        <div className={"flex " + styles.postSubreddit}>
+          <h5>{"r/" + subreddit}</h5>
+          <div className={"flex " + styles.postContent}>
+            <p>{ups}</p>
+            <div className={"flex " + styles.postTitle}>
+              <p>{title}</p>
+              {media}
+            </div>
           </div>
         </div>
         <p>Comments</p>
