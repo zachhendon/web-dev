@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import styles from "./Post.module.css";
+import PostUps from "../PostUps/PostUps";
 
 function Post(props) {
   const posts = useSelector((state) => state.posts.posts);
@@ -53,7 +54,7 @@ function Post(props) {
     );
   }
   const subreddit = post.data.subreddit;
-  const ups = post.data.ups;
+  const ups = <PostUps ups={post.data.ups} />;
 
   return (
     <>
@@ -61,7 +62,7 @@ function Post(props) {
         <div className={"flex " + styles.postSubreddit}>
           <h5>{"r/" + subreddit}</h5>
           <div className={"flex " + styles.postContent}>
-            <p>{ups}</p>
+            {ups}
             <div className={"flex " + styles.postTitle}>
               <p>{title}</p>
               {media}
