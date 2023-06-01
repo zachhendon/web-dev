@@ -13,9 +13,8 @@ function Post(props) {
     // video
     media = (
       <video
-        style={{ alignSelf: "center", width: "36rem", height: "auto" }}
+        style={{ alignSelf: "center", maxWidth: "100%", height: "36rem" }}
         alt="desc"
-        onclick="this.play()"
         controls
       >
         <source
@@ -36,7 +35,7 @@ function Post(props) {
         src={imgUrl}
         style={{
           alignSelf: "center",
-          width: "auto",
+          maxWidth: "100%",
           height: "36rem",
           objectFit: "cover",
         }}
