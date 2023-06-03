@@ -1,10 +1,9 @@
-import { Link } from "react-router-dom";
-import styles from "./Homepage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { searchPosts } from "../../features/posts/postsSlice";
 import { useState, useEffect } from "react";
 import Post from "../../app/common/components/Post/Post";
 import LogoBar from "../../app/common/components/LogoBar/LogoBar";
+import SearchBar from "../../app/common/components/SearchBar/SearchBar";
 
 export default function Homepage() {
   const [value, setValue] = useState(useSelector((state) => state.posts.query));
@@ -18,19 +17,11 @@ export default function Homepage() {
   const stateSort = useSelector((state) => state.posts.sort);
   const dispatch = useDispatch();
 
-  const handleClick = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (value !== "") {
       dispatch(searchPosts({ query: value, limit, sort: "hot" }));
     }
-  };
-
-  const handleInput = (e) => {
-    setValue(e.target.value);
-  };
-
-  const handleNumberInput = (e) => {
-    setLimit(e.target.value);
   };
 
   const handleMore = () => {
@@ -97,27 +88,13 @@ export default function Homepage() {
         <LogoBar />
       </header>
       <main>
-        <button onClick={handleClick}>Search</button>
-        <form onSubmit={handleClick}>
-          <label>Search</label>
-          <input
-            type="text"
-            value={value}
-            placeholder="search"
-            onInput={handleInput}
-          />
-        </form>
-        <form onSubmit={handleClick}>
-          <label>Limit</label>
-          <input
-            type="number"
-            value={limit}
-            placeholder="limit"
-            onInput={handleNumberInput}
-          ></input>
-        </form>
+        <SearchBar
+          value={value}
+          setValue={setValue}
+          handleSubmit={handleSubmit}
+        />
         {displayPosts}
-        <button onClick={handleMore}>See more...</button>
+        {searched && <button onClick={handleMore}>See more...</button>}
       </main>
     </>
   );

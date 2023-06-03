@@ -1,0 +1,35 @@
+.searchBar {
+  height: 5.6rem;
+  background-color: var(--black-10);
+  border-radius: 6.4rem;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 0 3.2rem;
+}
+
+.searchBar svg {
+  height: 3.6rem;
+  width: 3.6rem;
+}
+.searchBar path {
+  color: var(--black-75);
+}
+
+.searchBar form {
+  height: 100%;
+  width: 100%;
+}
+.searchBar input {
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  width: 100%;
+  font-size: 2.1rem;
+  color: var(--black-90);
+}
+.searchBar input:focus {
+  outline: none;
+}
+.searchBar input::selection {
+  background-color: var(--black-50);
+}
