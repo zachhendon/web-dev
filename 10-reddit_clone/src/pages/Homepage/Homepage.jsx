@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { searchPosts } from "../../features/posts/postsSlice";
 import { useState, useEffect } from "react";
 import Post from "../../app/common/components/Post/Post";
+import LogoBar from "../../app/common/components/LogoBar/LogoBar";
 
 export default function Homepage() {
   const [value, setValue] = useState(useSelector((state) => state.posts.query));
@@ -92,10 +93,9 @@ export default function Homepage() {
 
   return (
     <>
-      <Link to="/post/1" style={{ textDecoration: "none" }}>
-        <h1 className={styles.test}>Homepage</h1>
-      </Link>
-
+      <header>
+        <LogoBar />
+      </header>
       <main>
         <button onClick={handleClick}>Search</button>
         <form onSubmit={handleClick}>
