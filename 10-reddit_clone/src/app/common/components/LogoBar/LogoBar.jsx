@@ -1,9 +1,8 @@
 import styles from "./LogoBar.module.css";
-import pic from "./RedditLogo.png";
+import pic from "../../assets/RedditLogo.png";
 import { Link } from "react-router-dom";
 
 function LogoBar() {
-  console.log(pic);
   return (
     <Link to="/" style={{ textDecoration: "none" }}>
       <div className={"flex " + styles.logoBar}>

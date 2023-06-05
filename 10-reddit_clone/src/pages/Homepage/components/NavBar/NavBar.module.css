@@ -1,0 +1,24 @@
+.navBar {
+  margin-top: 3.2rem;
+  margin-bottom: 4.8rem;
+  gap: 4.8rem;
+}
+
+.filter {
+  gap: 1.6rem;
+  align-items: center;
+}
+.filter:hover {
+  cursor: pointer;
+}
+.filter:hover h4,
+.filter:hover path {
+  color: var(--primary-color);
+}
+.filter h4 {
+  font-weight: 400;
+}
+.filter svg {
+  height: 4rem;
+  width: 4rem;
+}

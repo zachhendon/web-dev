@@ -1,5 +1,6 @@
 .searchBar {
   height: 5.6rem;
+  width: 100%;
   background-color: var(--black-10);
   border-radius: 6.4rem;
   align-items: center;

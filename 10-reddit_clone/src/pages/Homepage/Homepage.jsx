@@ -2,8 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { searchPosts } from "../../features/posts/postsSlice";
 import { useState, useEffect } from "react";
 import Post from "../../app/common/components/Post/Post";
-import LogoBar from "../../app/common/components/LogoBar/LogoBar";
-import SearchBar from "../../app/common/components/SearchBar/SearchBar";
+import NavBar from "./components/NavBar/NavBar";
 
 export default function Homepage() {
   const [value, setValue] = useState(useSelector((state) => state.posts.query));
@@ -84,15 +83,8 @@ export default function Homepage() {
 
   return (
     <>
-      <header>
-        <LogoBar />
-      </header>
+      <NavBar value={value} setValue={setValue} handleSubmit={handleSubmit} />
       <main>
-        <SearchBar
-          value={value}
-          setValue={setValue}
-          handleSubmit={handleSubmit}
-        />
         {displayPosts}
         {searched && <button onClick={handleMore}>See more...</button>}
       </main>
