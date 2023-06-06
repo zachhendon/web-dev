@@ -14,7 +14,8 @@ function Post(props) {
 
   const posts = useSelector((state) => state.posts.posts);
   if (posts.length <= props.postIndex) {
-    return error;
+    console.log("error");
+    return <></>;
   }
   const post = posts[props.postIndex];
   const title = post.data.title;
@@ -50,9 +51,9 @@ function Post(props) {
     } else if (post.data.thumbnail && isValidMedia(post.data.thumbnail)) {
       imgUrl = post.data.thumbnail;
     } else {
-      return error;
+      imgUrl = null;
     }
-    media = (
+    media = imgUrl ? (
       <img
         src={imgUrl}
         style={{
@@ -63,6 +64,8 @@ function Post(props) {
         }}
         alt="desc"
       ></img>
+    ) : (
+      <></>
     );
   }
   const subreddit = post.data.subreddit;
