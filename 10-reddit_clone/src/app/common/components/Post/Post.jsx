@@ -5,16 +5,14 @@ import PostUps from "../PostUps/PostUps";
 function Post(props) {
   const error = (
     <>
-      <p>Sorry, there was an error loading this post</p>
-      <p>
-        ---------------------------------------------------------------------------------------------------------------------------------
-      </p>
+      <h5 className={styles.error}>
+        Sorry, there was an error loading this post
+      </h5>
     </>
   );
-
+  
   const posts = useSelector((state) => state.posts.posts);
   if (posts.length <= props.postIndex) {
-    console.log("error");
     return <></>;
   }
   const post = posts[props.postIndex];
@@ -86,9 +84,6 @@ function Post(props) {
         </div>
         <p>Comments</p>
       </div>
-      <p>
-        ---------------------------------------------------------------------------------------------------------------------------------
-      </p>
     </>
   );
 }
