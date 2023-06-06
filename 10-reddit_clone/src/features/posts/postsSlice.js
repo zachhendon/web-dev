@@ -33,15 +33,15 @@ export const searchPosts = createAsyncThunk(
   async (params, thunkAPI) => {
     const state = thunkAPI.getState().posts;
     const dispatch = thunkAPI.dispatch;
-    const query = params.query;
-    const limit = params.limit;
+    const query = params.query || state.query;
+    const limit = params.limit || state.limit;
     const limitDiff = limit - state.limit;
-    const sort = params.sort || "relevance";
+    const sort = params.sort || state.sort;
 
-    if (query !== state.query || sort !== state.sort) {
+    if (params.query !== state.query || params.sort !== state.sort) {
       // query changed
       dispatch(resetPosts());
-      dispatch(setParams(params));
+      dispatch(setParams({ query, limit, sort }));
       return await getPosts(query, limit, sort, thunkAPI);
     } else if (limitDiff === 0) {
       // same query, same posts
@@ -81,6 +81,9 @@ const postsSlice = createSlice({
       state.limit = parseInt(action.payload.limit);
       state.sort = action.payload.sort;
     },
+    setSort: (state, action) => {
+      state.sort = action.payload;
+    },
     resetPosts: (state) => {
       state.posts = [];
       state.after = "";
@@ -119,6 +122,7 @@ export const {
   addPosts,
   removePosts,
   setParams,
+  setSort,
   resetPosts,
   statusSucceeded,
   collapseComment,

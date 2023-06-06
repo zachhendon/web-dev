@@ -13,7 +13,7 @@ function NavBar(props) {
           setValue={props.setValue}
           handleSubmit={props.handleSubmit}
         />
-        <Filter sort={props.sort} setSort={props.setSort} />
+        <Filter sort={props.sort} submitQuery={props.submitQuery} />
       </div>
     </header>
   );

@@ -7,21 +7,25 @@ import NavBar from "./components/NavBar/NavBar";
 export default function Homepage() {
   const [value, setValue] = useState(useSelector((state) => state.posts.query));
   const [limit, setLimit] = useState(useSelector((state) => state.posts.limit));
-  const [sort, setSort] = useState(useSelector((state) => state.posts.sort));
   const searchMessage = "Search for posts";
   const [displayPosts, setDisplayPosts] = useState(<p>{searchMessage}</p>);
   const [searched, setSearched] = useState(false);
   const posts = useSelector((state) => state.posts.posts);
+  const sort = useSelector((state) => state.posts.sort);
   const status = useSelector((state) => state.posts.status);
   const stateLimit = useSelector((state) => state.posts.limit);
   const stateSort = useSelector((state) => state.posts.sort);
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const submitQuery = () => {
     if (value !== "") {
       dispatch(searchPosts({ query: value, limit, sort }));
     }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    submitQuery();
   };
 
   const handleMore = () => {
@@ -84,7 +88,13 @@ export default function Homepage() {
 
   return (
     <>
-      <NavBar value={value} setValue={setValue} sort={sort} setSort={setSort} handleSubmit={handleSubmit} />
+      <NavBar
+        value={value}
+        setValue={setValue}
+        sort={sort}
+        handleSubmit={handleSubmit}
+        submitQuery={submitQuery}
+      />
       <main>
         {displayPosts}
         {searched && <button onClick={handleMore}>See more...</button>}

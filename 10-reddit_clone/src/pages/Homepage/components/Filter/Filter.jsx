@@ -1,9 +1,14 @@
 import styles from "./Filter.module.css";
 import FilterIcon from "../../../../app/common/assets/Filter";
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setSort, searchPosts } from "../../../../features/posts/postsSlice";
 
 function Filter(props) {
   const [active, setActive] = useState(false);
+  const query = useSelector((state) => state.posts.query);
+  const sortState = useSelector((state) => state.posts.sort);
+  const dispatch = useDispatch();
 
   window.addEventListener("click", (e) => {
     const dropdown = document.getElementsByClassName(styles.dropdown)[0];
@@ -22,10 +27,17 @@ function Filter(props) {
     }
   });
 
+  const handleClick = async (newSort) => {
+    await dispatch(setSort(newSort));
+    if (query !== "") {
+      dispatch(searchPosts({ limit: 5, sort: null }));
+    }
+  };
+
   return (
     <div className={styles.dropdown}>
       <button className={"flex " + styles.dropdownButton}>
-        <h4>{props.sort}</h4>
+        <h4>{sortState}</h4>
         {FilterIcon}
       </button>
       <div className={styles.dropdownContent}>
@@ -34,7 +46,7 @@ function Filter(props) {
           {["best", "hot", "new", "top", "rising"].map((sort, index) => (
             <p
               key={index}
-              onClick={() => props.setSort(sort)}
+              onClick={() => handleClick(sort)}
               style={{ textTransform: "capitalize" }}
             >
               {sort}
