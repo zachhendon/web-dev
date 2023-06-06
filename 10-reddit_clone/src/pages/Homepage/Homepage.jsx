@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { searchPosts } from "../../features/posts/postsSlice";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Post from "../../app/common/components/Post/Post";
 import NavBar from "./components/NavBar/NavBar";
 
@@ -27,7 +27,7 @@ export default function Homepage() {
     submitQuery();
   };
 
-  const handleMore = () => {
+  const handleMore = useCallback(() => {
     dispatch(
       searchPosts({
         query: value,
@@ -35,7 +35,7 @@ export default function Homepage() {
         sort: stateSort,
       })
     );
-  };
+  }, [dispatch, limit, stateSort, value]);
 
   useEffect(() => {
     setSearched(
@@ -62,7 +62,7 @@ export default function Homepage() {
         setDisplayPosts(
           <>
             {posts.map((post, index) => (
-              <Post postIndex={index} key={index} />
+              <Post postIndex={index} key={index} handleMore={handleMore} />
             ))}
           </>
         );
@@ -73,7 +73,7 @@ export default function Homepage() {
             <p style={{ color: "red" }}>Failed to load new posts</p>
             <div>
               {posts.map((post, index) => (
-                <Post postIndex={index} key={index} />
+                <Post postIndex={index} key={index} handleMore={handleMore} />
               ))}
             </div>
           </>
@@ -83,7 +83,7 @@ export default function Homepage() {
         setDisplayPosts(<p>{searchMessage}</p>);
         break;
     }
-  }, [status, posts, dispatch, limit, stateSort, value, searched]);
+  }, [status, posts, dispatch, limit, stateSort, value, searched, handleMore]);
 
   return (
     <>
@@ -96,7 +96,7 @@ export default function Homepage() {
       />
       <main>
         {displayPosts}
-        {searched && <button onClick={handleMore}>See more...</button>}
+        {searched && <p>Loading more posts...</p>}
       </main>
     </>
   );

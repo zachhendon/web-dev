@@ -1,8 +1,27 @@
+import { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import styles from "./Post.module.css";
 import PostUps from "../PostUps/PostUps";
 
 function Post(props) {
+  const posts = useSelector((state) => state.posts.posts);
+  const limit = useSelector((state) => state.posts.limit);
+
+  const myRef = useRef();
+  useEffect(() => {
+    if (posts.length <= props.postIndex) {
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      if (entry.isIntersecting && props.postIndex === limit - 2) {
+        props.handleMore();
+      }
+    });
+    observer.observe(myRef.current);
+  }, [limit, posts.length, props]);
+
   const error = (
     <>
       <h5 className={styles.error}>
@@ -10,8 +29,7 @@ function Post(props) {
       </h5>
     </>
   );
-  
-  const posts = useSelector((state) => state.posts.posts);
+
   if (posts.length <= props.postIndex) {
     return <></>;
   }
@@ -71,7 +89,7 @@ function Post(props) {
 
   return (
     <>
-      <div className={"grid " + styles.postComments}>
+      <div ref={myRef} className={"grid " + styles.postComments}>
         <div className={"flex " + styles.postSubreddit}>
           <h5>{"r/" + subreddit}</h5>
           <div className={"flex " + styles.postContent}>
