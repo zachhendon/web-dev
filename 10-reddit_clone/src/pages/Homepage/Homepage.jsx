@@ -6,14 +6,13 @@ import NavBar from "./components/NavBar/NavBar";
 
 export default function Homepage() {
   const [value, setValue] = useState(useSelector((state) => state.posts.query));
-  const [limit, setLimit] = useState(useSelector((state) => state.posts.limit));
   const searchMessage = "Search for posts";
   const [displayPosts, setDisplayPosts] = useState(<p>{searchMessage}</p>);
   const [searched, setSearched] = useState(false);
   const posts = useSelector((state) => state.posts.posts);
   const sort = useSelector((state) => state.posts.sort);
   const status = useSelector((state) => state.posts.status);
-  const stateLimit = useSelector((state) => state.posts.limit);
+  const limit = useSelector((state) => state.posts.limit);
   const stateSort = useSelector((state) => state.posts.sort);
   const dispatch = useDispatch();
 
@@ -32,7 +31,7 @@ export default function Homepage() {
     dispatch(
       searchPosts({
         query: value,
-        limit: stateLimit + 5,
+        limit: limit + 5,
         sort: stateSort,
       })
     );
@@ -84,7 +83,7 @@ export default function Homepage() {
         setDisplayPosts(<p>{searchMessage}</p>);
         break;
     }
-  }, [status, posts, dispatch, stateLimit, stateSort, value, searched]);
+  }, [status, posts, dispatch, limit, stateSort, value, searched]);
 
   return (
     <>

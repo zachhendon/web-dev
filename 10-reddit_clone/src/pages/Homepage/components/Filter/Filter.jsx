@@ -7,7 +7,7 @@ import { setSort, searchPosts } from "../../../../features/posts/postsSlice";
 function Filter(props) {
   const [active, setActive] = useState(false);
   const query = useSelector((state) => state.posts.query);
-  const sortState = useSelector((state) => state.posts.sort);
+  const sort = useSelector((state) => state.posts.sort);
   const dispatch = useDispatch();
 
   window.addEventListener("click", (e) => {
@@ -29,7 +29,7 @@ function Filter(props) {
 
   const handleClick = async (newSort) => {
     await dispatch(setSort(newSort));
-    if (query !== "") {
+    if (query !== "" && newSort !== sort) {
       dispatch(searchPosts({ limit: 5, sort: null }));
     }
   };
@@ -37,7 +37,7 @@ function Filter(props) {
   return (
     <div className={styles.dropdown}>
       <button className={"flex " + styles.dropdownButton}>
-        <h4>{sortState}</h4>
+        <h4>{sort}</h4>
         {FilterIcon}
       </button>
       <div className={styles.dropdownContent}>
