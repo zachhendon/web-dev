@@ -1,0 +1,79 @@
+.dropdown {
+  position: relative;
+  height: 100%;
+  width: 20rem;
+}
+.dropdown * {
+  cursor: pointer;
+}
+.dropdown h4 {
+  text-transform: capitalize;
+}
+
+.dropdownButton {
+  border: none;
+  background: none;
+}
+.dropdownButton {
+  gap: 1.6rem;
+  align-items: center;
+}
+.dropdownActive > .dropdownButton h4,
+.dropdownActive > .dropdownButton path,
+.dropdownButton:hover h4,
+.dropdownButton:hover path {
+  color: var(--primary-color);
+}
+.dropdownButton h4 {
+  font-weight: 400;
+}
+
+.dropdownButton svg {
+  height: 4rem;
+  width: 4rem;
+}
+
+.dropdownContent {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 0.5rem);
+  border-radius: 1rem;
+  background-color: var(--black-10);
+  padding: 1.2rem 2.4rem;
+  box-shadow: 0 0.5rem 1rem var(--black-25);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-1rem);
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+.dropdownActive > .dropdownButton + .dropdownContent {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.arrow {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0.5rem;
+  margin: auto;
+  border-radius: 0.3rem;
+  height: 2rem;
+  width: 2rem;
+  background: var(--black-10);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.content {
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.content p {
+  font-weight: 600;
+}
+.content p:hover {
+  color: var(--primary-color);
+}

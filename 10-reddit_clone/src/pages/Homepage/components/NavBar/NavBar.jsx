@@ -1,13 +1,9 @@
 import styles from "./NavBar.module.css";
 import LogoBar from "../../../../app/common/components/LogoBar/LogoBar";
 import SearchBar from "../../../../app/common/components/SearchBar/SearchBar";
-import Filter from "../../../../app/common/assets/Filter";
+import Filter from "../Filter/Filter";
 
 function NavBar(props) {
-  const handleClick = () => {
-    alert("filtering...")
-  }
-
   return (
     <header>
       <LogoBar />
@@ -17,10 +13,7 @@ function NavBar(props) {
           setValue={props.setValue}
           handleSubmit={props.handleSubmit}
         />
-        <div className={"flex " + styles.filter} onClick={handleClick}>
-          <h4>Filter</h4>
-          {Filter}
-        </div>
+        <Filter sort={props.sort} setSort={props.setSort} />
       </div>
     </header>
   );

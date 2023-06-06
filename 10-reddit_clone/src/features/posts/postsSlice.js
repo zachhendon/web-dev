@@ -6,7 +6,7 @@ const initialState = {
   status: "idle",
   query: "",
   limit: 5,
-  sort: "relevance",
+  sort: "hot",
   after: "",
   error: "",
 };
