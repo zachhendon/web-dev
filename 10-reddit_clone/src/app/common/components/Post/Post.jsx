@@ -1,12 +1,24 @@
 import { useEffect, useRef } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import styles from "./Post.module.css";
 import PostUps from "../PostUps/PostUps";
 import Comment from "../Comment/Comment";
+import { setHeight } from "../../../../features/posts/postsSlice";
 
 function Post(props) {
   const posts = useSelector((state) => state.posts.posts);
   const limit = useSelector((state) => state.posts.limit);
+  const dispatch = useDispatch();
+
+  const heightRef = useRef();
+  useEffect(() => {
+    dispatch(
+      setHeight({
+        postIndex: props.postIndex,
+        height: heightRef.current.clientHeight,
+      })
+    );
+  }, [dispatch, props.postIndex]);
 
   const myRef = useRef();
   useEffect(() => {
@@ -73,18 +85,20 @@ function Post(props) {
 
   return (
     <>
-      <div ref={myRef} className={"grid " + styles.postComments}>
-        <div className={"flex " + styles.postSubreddit}>
-          <h5>{"r/" + subreddit}</h5>
-          <div className={"flex " + styles.postContent}>
-            {ups}
-            <div className={"flex " + styles.postTitle}>
-              <p>{title}</p>
-              {media}
+      <div ref={myRef} className={"flex " + styles.post}>
+        <h5>{"r/" + subreddit}</h5>
+        <div className={"grid " + styles.postComments}>
+          <div className={"flex " + styles.postSubreddit}>
+            <div ref={heightRef} className={"flex " + styles.postContent}>
+              {ups}
+              <div className={"flex " + styles.postTitle}>
+                <p>{title}</p>
+                {media}
+              </div>
             </div>
           </div>
+          <Comment postIndex={props.postIndex} />
         </div>
-        <Comment postIndex={props.postIndex} />
       </div>
     </>
   );

@@ -12,20 +12,12 @@ const initialState = {
 };
 
 const formatComments = (comments) => {
-  // console.log(i);
   const formattedComments = [];
-  // console.log("initial", comments);
   for (const comment of comments) {
-    // console.log("comment", comment);
     const author = comment.data.author;
     const body = comment.data.body;
     const ups = comment.data.ups;
     const replies = comment.data.replies;
-    // if (replies) {
-    //   console.log("replies", replies);
-    //   console.log("repliesChildren", replies.data.children[0]);
-    //   console.log("formatted", formatComments([replies.data.children], i + 1));
-    // }
 
     formattedComments.push({
       author,
@@ -34,7 +26,6 @@ const formatComments = (comments) => {
       replies: replies ? formatComments(replies.data.children) : [],
     });
   }
-  // console.log("final", formattedComments);
   return formattedComments;
 };
 
@@ -48,7 +39,6 @@ const getComments = async (posts) => {
   );
 
   const commentsList = response.map((comment) => comment.data[1].data.children);
-  // console.log("FINALLY", formatComments(comments, 1));
   return commentsList.map((comments) => formatComments(comments));
 };
 
@@ -104,6 +94,7 @@ const getPosts = async (query, limit, sort, thunkAPI) => {
       ups,
       isVideo,
       mediaUrl,
+      // height: 0,
     });
   }
   return { posts, after: data.after };
@@ -165,6 +156,11 @@ const postsSlice = createSlice({
     setSort: (state, action) => {
       state.sort = action.payload;
     },
+    setHeight: (state, action) => {
+      const postIndex = action.payload.postIndex;
+      const height = action.payload.height;
+      state.posts[postIndex].height = height;
+    },
     resetPosts: (state) => {
       state.posts = [];
       state.after = "";
@@ -203,6 +199,7 @@ export const {
   removePosts,
   setParams,
   setSort,
+  setHeight,
   resetPosts,
   statusSucceeded,
   collapseComment,

@@ -1,20 +1,29 @@
-.postComments {
+.post {
+  flex-direction: column;
+  gap: 1.6rem;
   background-color: var(--secondary-color-10);
-  grid-template-columns: 2fr 1fr;
-  justify-items: space-between;
-  gap: 4.8rem;
   padding: 3.2rem;
   border-radius: 2rem;
   margin: 4.8rem 0;
 }
+
+.postComments {
+  grid-template-columns: 2fr 1fr;
+  justify-items: space-between;
+  gap: 4.8rem;
+}
+
 .postSubreddit {
   flex-direction: column;
   gap: 1.6rem;
 }
+
 .postContent {
   width: 100%;
   gap: 6.4rem;
+  border: solid red 1px;
 }
+
 .postTitle {
   flex-direction: column;
   width: 100%;
