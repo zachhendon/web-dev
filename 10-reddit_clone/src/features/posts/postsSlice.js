@@ -11,6 +11,52 @@ const initialState = {
   error: "",
 };
 
+const formatComments = (comments) => {
+  // console.log(i);
+  const formattedComments = [];
+  // console.log("initial", comments);
+  for (const comment of comments) {
+    // console.log("comment", comment);
+    const author = comment.data.author;
+    const body = comment.data.body;
+    const ups = comment.data.ups;
+    const replies = comment.data.replies;
+    // if (replies) {
+    //   console.log("replies", replies);
+    //   console.log("repliesChildren", replies.data.children[0]);
+    //   console.log("formatted", formatComments([replies.data.children], i + 1));
+    // }
+
+    formattedComments.push({
+      author,
+      body,
+      ups,
+      replies: replies ? formatComments(replies.data.children) : [],
+    });
+  }
+  // console.log("final", formattedComments);
+  return formattedComments;
+};
+
+const getComments = async (posts) => {
+  const response = await Promise.all(
+    posts.map((post) =>
+      axios.get(
+        `https://www.reddit.com/r/${post.data.subreddit}/comments/${post.data.id}.json`
+      )
+    )
+  );
+
+  const commentsList = response.map((comment) => comment.data[1].data.children);
+  // console.log("FINALLY", formatComments(comments, 1));
+  return commentsList.map((comments) => formatComments(comments));
+};
+
+const isValidMedia = (url) => {
+  return (
+    ["jpg", "jpeg", "tiff", "png", "gif", "bmp"].indexOf(url.slice(-3)) !== -1
+  );
+};
 const getPosts = async (query, limit, sort, thunkAPI) => {
   const response = await axios.get("https://www.reddit.com/search.json", {
     params: {
@@ -21,11 +67,46 @@ const getPosts = async (query, limit, sort, thunkAPI) => {
     },
   });
   const data = response.data.data;
-
-  if (data.children.length === 0) {
+  const postsData = data.children;
+  if (postsData.length === 0) {
     thunkAPI.dispatch("searchPosts/rejected");
   }
-  return data;
+  let posts = [];
+  const commentsList = await getComments(postsData);
+  for (let i = 0; i < postsData.length; i++) {
+    const comments = commentsList[i];
+    const post = postsData[i].data;
+    const id = post.id;
+    const title = post.title;
+    const subreddit = post.subreddit;
+    const ups = post.ups;
+    const isVideo = post.is_video;
+    let mediaUrl;
+    if (isVideo) {
+      if (!post.media) {
+        mediaUrl = null;
+      }
+      mediaUrl = post.media.reddit_video.fallback_url;
+    } else {
+      if (post.url && isValidMedia(post.url)) {
+        mediaUrl = post.url;
+      } else if (post.thumbnail && isValidMedia(post.thumbnail)) {
+        mediaUrl = post.thumbnail;
+      } else {
+        mediaUrl = null;
+      }
+    }
+    posts.push({
+      comments,
+      id,
+      title,
+      subreddit,
+      ups,
+      isVideo,
+      mediaUrl,
+    });
+  }
+  return { posts, after: data.after };
 };
 
 export const searchPosts = createAsyncThunk(
@@ -104,8 +185,7 @@ const postsSlice = createSlice({
           return;
         }
         state.status = "succeeded";
-        const newPosts = action.payload.children;
-        for (const post of newPosts) {
+        for (const post of action.payload.posts) {
           state.posts.push(post);
         }
         state.after = action.payload.after;

@@ -96,7 +96,7 @@ export default function Homepage() {
       />
       <main>
         {displayPosts}
-        {searched && <p>Loading more posts...</p>}
+        {searched && status !== "loading" && <p>Loading more posts...</p>}
       </main>
     </>
   );
