@@ -13,7 +13,10 @@ function Comment(props) {
     if (i === limit) return;
     return (
       <>
-        <h6>{comment.author}</h6>
+        <div className={"flex " + styles.profile}>
+          
+          <h6>{comment.author}</h6>
+        </div>
         {comment.replies.length !== 0 && (
           <div className={styles.indent}>
             {comment.replies.map((reply) => formatComment(reply, i + 1, limit))}

@@ -29,6 +29,16 @@ const formatComments = (comments) => {
   return formattedComments;
 };
 
+const getUserProfiles = async (comments) => {
+  const response = await Promise.all(
+    comments.map((comment) =>
+      axios.get(`https://www.reddit.com/user/${comment.author}/about.json`)
+    )
+  );
+
+  return response.map((user) => user.data.data.icon_img.split("?")[0]);
+};
+
 const getComments = async (posts) => {
   const response = await Promise.all(
     posts.map((post) =>
@@ -38,8 +48,23 @@ const getComments = async (posts) => {
     )
   );
 
-  const commentsList = response.map((comment) => comment.data[1].data.children);
-  return commentsList.map((comments) => formatComments(comments));
+  let commentsList = response.map((comment) => comment.data[1].data.children);
+  commentsList = commentsList.map((comments) => formatComments(comments));
+
+  const userProfileList = await Promise.all(
+    commentsList.map((comments) => getUserProfiles(comments))
+  );
+
+  for (let i = 0; i < commentsList.length; i++) {
+    for (let j = 0; j < commentsList[i].length; j++) {
+      commentsList[i][j] = {
+        ...commentsList[i][j],
+        userProfile: userProfileList[i][j],
+      };
+    }
+  }
+
+  return commentsList;
 };
 
 const isValidMedia = (url) => {
@@ -94,7 +119,6 @@ const getPosts = async (query, limit, sort, thunkAPI) => {
       ups,
       isVideo,
       mediaUrl,
-      // height: 0,
     });
   }
   return { posts, after: data.after };
