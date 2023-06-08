@@ -31,7 +31,7 @@ export default function Homepage() {
     dispatch(
       searchPosts({
         query: value,
-        limit: limit + 5,
+        limit: limit + 10,
         sort: stateSort,
       })
     );

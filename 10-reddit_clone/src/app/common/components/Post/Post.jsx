@@ -28,7 +28,7 @@ function Post(props) {
 
     const observer = new IntersectionObserver((entries) => {
       const entry = entries[0];
-      if (entry.isIntersecting && props.postIndex === limit - 2) {
+      if (entry.isIntersecting && props.postIndex === limit - 5) {
         props.handleMore();
       }
     });

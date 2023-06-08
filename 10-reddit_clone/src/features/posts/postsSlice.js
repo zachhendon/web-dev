@@ -5,7 +5,7 @@ const initialState = {
   posts: [],
   status: "idle",
   query: "",
-  limit: 5,
+  limit: 10,
   sort: "hot",
   after: "",
   error: "",
@@ -18,6 +18,8 @@ const formatComments = (comments) => {
     const body = comment.data.body;
     const ups = comment.data.ups;
     const replies = comment.data.replies;
+
+    if (author === "[deleted]") continue;
 
     formattedComments.push({
       author,
