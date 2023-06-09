@@ -21,7 +21,7 @@
 .postContent {
   width: 100%;
   gap: 6.4rem;
-  border: solid red 1px;
+  /* border: solid red 1px; */
 }
 
 .postTitle {

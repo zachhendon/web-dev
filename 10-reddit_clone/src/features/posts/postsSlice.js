@@ -19,7 +19,7 @@ const formatComments = (comments) => {
     const ups = comment.data.ups;
     const replies = comment.data.replies;
 
-    if (author === "[deleted]") continue;
+    if (author === "[deleted]" || author === undefined) continue;
 
     formattedComments.push({
       author,
@@ -31,20 +31,30 @@ const formatComments = (comments) => {
   return formattedComments;
 };
 
-const getUserProfiles = async (comments) => {
+const getAllComments = (comments) => {
+  const allComments = [];
+  for (const comment of comments) {
+    allComments.push(comment);
+    allComments.push(...getAllComments(comment.replies));
+  }
+  return allComments;
+};
+
+const addUserProfiles = async (comments) => {
+  const allComments = getAllComments(comments);
+
   let response;
   try {
     response = await Promise.all(
-      comments.map((comment) =>
+      allComments.map((comment) =>
         axios.get(`https://www.reddit.com/user/${comment.author}/about.json`)
       )
     );
   } catch (e) {
-    console.log(e);
     response = [];
   }
 
-  const data = response.map((user) => {
+  const mediaUrls = response.map((user) => {
     try {
       return user.data.data.icon_img.split("?")[0];
     } catch (e) {
@@ -52,7 +62,10 @@ const getUserProfiles = async (comments) => {
       return `https://www.redditstatic.com/avatars/defaults/v2/avatar_default_${version}.png`;
     }
   });
-  return data;
+
+  for (let i = 0; i < allComments.length; i++) {
+    allComments[i].userProfile = mediaUrls[i];
+  }
 };
 
 const getComments = async (posts) => {
@@ -65,25 +78,12 @@ const getComments = async (posts) => {
         );
       })
     );
-  } catch (e) {
-    console.log(e.message);
-  }
+  } catch (e) {}
 
   let commentsList = response.map((comment) => comment.data[1].data.children);
   commentsList = commentsList.map((comments) => formatComments(comments));
 
-  const userProfileList = await Promise.all(
-    commentsList.map((comments) => getUserProfiles(comments))
-  );
-
-  for (let i = 0; i < commentsList.length; i++) {
-    for (let j = 0; j < commentsList[i].length; j++) {
-      commentsList[i][j] = {
-        ...commentsList[i][j],
-        userProfile: userProfileList[i][j],
-      };
-    }
-  }
+  await Promise.all(commentsList.map((comments) => addUserProfiles(comments)));
 
   return commentsList;
 };
@@ -166,8 +166,9 @@ export const searchPosts = createAsyncThunk(
       return;
     } else if (limitDiff > 0) {
       // same query, more posts
+      const response = await getPosts(query, limitDiff, sort, thunkAPI);
       dispatch(setParams(params));
-      return await getPosts(query, limitDiff, sort, thunkAPI);
+      return response;
     } else {
       // same query, less posts
       dispatch(setParams(params));

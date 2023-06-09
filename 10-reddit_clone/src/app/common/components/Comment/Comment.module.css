@@ -1,11 +1,18 @@
 .comments {
   overflow-y: hidden;
   overflow-x: hidden;
-  border: solid blue 1px;
+  /* border: solid blue 1px; */
 }
 
 .indent {
-  margin-left: 1.2rem;
-  padding-left: 1.2rem;
-  border-left: solid black 1px;
+  margin-left: 1.6rem;
+  padding-left: 0.8rem;
+  border-left: solid var(--black-25) 1px;
+  margin-top: 0.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.profile {
+  align-items: center;
+  gap: 0.8rem;
 }

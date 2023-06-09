@@ -43,7 +43,7 @@ export default function Homepage() {
           posts.length !== 0 ? (
             <>
               {prev}
-              <p>Loading...</p>
+              <p>Loading more posts...</p>
             </>
           ) : (
             <p>Loading...</p>
@@ -88,7 +88,6 @@ export default function Homepage() {
       />
       <main>
         {displayPosts}
-        {posts.length !== 0 && status !== "loading" && <p>Loading more posts...</p>}
       </main>
     </>
   );
