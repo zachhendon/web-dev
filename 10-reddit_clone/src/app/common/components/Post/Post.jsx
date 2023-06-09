@@ -35,14 +35,6 @@ function Post(props) {
     observer.observe(myRef.current);
   }, [limit, posts.length, props]);
 
-  const error = (
-    <>
-      <h5 className={styles.error}>
-        Sorry, there was an error loading this post
-      </h5>
-    </>
-  );
-
   if (posts.length <= props.postIndex) {
     return <></>;
   }

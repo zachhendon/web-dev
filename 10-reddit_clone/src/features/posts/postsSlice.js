@@ -32,23 +32,42 @@ const formatComments = (comments) => {
 };
 
 const getUserProfiles = async (comments) => {
-  const response = await Promise.all(
-    comments.map((comment) =>
-      axios.get(`https://www.reddit.com/user/${comment.author}/about.json`)
-    )
-  );
+  let response;
+  try {
+    response = await Promise.all(
+      comments.map((comment) =>
+        axios.get(`https://www.reddit.com/user/${comment.author}/about.json`)
+      )
+    );
+  } catch (e) {
+    console.log(e);
+    response = [];
+  }
 
-  return response.map((user) => user.data.data.icon_img.split("?")[0]);
+  const data = response.map((user) => {
+    try {
+      return user.data.data.icon_img.split("?")[0];
+    } catch (e) {
+      const version = Math.floor(Math.random() * 8);
+      return `https://www.redditstatic.com/avatars/defaults/v2/avatar_default_${version}.png`;
+    }
+  });
+  return data;
 };
 
 const getComments = async (posts) => {
-  const response = await Promise.all(
-    posts.map((post) =>
-      axios.get(
-        `https://www.reddit.com/r/${post.data.subreddit}/comments/${post.data.id}.json`
-      )
-    )
-  );
+  let response;
+  try {
+    response = await Promise.all(
+      posts.map((post) => {
+        return axios.get(
+          `https://www.reddit.com/r/${post.data.subreddit}/comments/${post.data.id}.json`
+        );
+      })
+    );
+  } catch (e) {
+    console.log(e.message);
+  }
 
   let commentsList = response.map((comment) => comment.data[1].data.children);
   commentsList = commentsList.map((comments) => formatComments(comments));

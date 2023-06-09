@@ -30,7 +30,7 @@ function Filter(props) {
   const handleClick = async (newSort) => {
     await dispatch(setSort(newSort));
     if (query !== "" && newSort !== sort) {
-      dispatch(searchPosts({ limit: 5, sort: null }));
+      dispatch(searchPosts({ limit: 10, sort: null }));
     }
   };
 

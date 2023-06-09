@@ -8,7 +8,6 @@ export default function Homepage() {
   const [value, setValue] = useState(useSelector((state) => state.posts.query));
   const searchMessage = "Search for posts";
   const [displayPosts, setDisplayPosts] = useState(<p>{searchMessage}</p>);
-  const [searched, setSearched] = useState(false);
   const posts = useSelector((state) => state.posts.posts);
   const sort = useSelector((state) => state.posts.sort);
   const status = useSelector((state) => state.posts.status);
@@ -38,17 +37,10 @@ export default function Homepage() {
   }, [dispatch, limit, stateSort, value]);
 
   useEffect(() => {
-    setSearched(
-      typeof displayPosts.props.children !== "string" &&
-        displayPosts.props.children !== searchMessage
-    );
-  }, [displayPosts]);
-
-  useEffect(() => {
     switch (status) {
       case "loading":
         setDisplayPosts((prev) =>
-          searched ? (
+          posts.length !== 0 ? (
             <>
               {prev}
               <p>Loading...</p>
@@ -83,7 +75,7 @@ export default function Homepage() {
         setDisplayPosts(<p>{searchMessage}</p>);
         break;
     }
-  }, [status, posts, dispatch, limit, stateSort, value, searched, handleMore]);
+  }, [status, posts, dispatch, limit, stateSort, value, handleMore]);
 
   return (
     <>
@@ -96,7 +88,7 @@ export default function Homepage() {
       />
       <main>
         {displayPosts}
-        {searched && status !== "loading" && <p>Loading more posts...</p>}
+        {posts.length !== 0 && status !== "loading" && <p>Loading more posts...</p>}
       </main>
     </>
   );
