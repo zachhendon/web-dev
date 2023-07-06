@@ -12,4 +12,5 @@ This repository is a collection of projects that I will be completing as I learn
 | [8. Jamming](8-jamming) | Javascript, React |
 | [9. Flashcards](9-flashcards) | React, React-Router, Redux/Redux Toolkit, UI/UX |
 | [10-reddit_clone](10-reddit_clone) | React, React-Router, Redux Toolkit, UI/UX, external APIs |
-| [11-web_crawler](11-web_crawler) | HTTP, Axios, networking, Jest |
+| [11-web_crawler](11-web_crawler) | HTTP, Axios, networking |
+| [12-quote_generator](12-quote_generator) | Node, Express, APIs, Postman, curl |
